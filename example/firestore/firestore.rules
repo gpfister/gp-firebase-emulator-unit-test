@@ -1,0 +1,39 @@
+/**
+ * firebase-emulator-unit-test/example
+ *
+ * @author Greg PFISTER
+ * @license MIT
+ * @copyright (C) 2021, Greg PFISTER. MIT License
+ */
+
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    match /{document=**} {
+      allow read, write: if false;
+    }
+
+    // User signed in
+    function isSignedIn() {
+      return request.auth != null;
+    }
+
+    // Does the logged-in user match the requested userId?
+    function isUser(userId) {
+      return request.auth.uid == userId;
+    }      
+    
+    // User account
+    match /users/{userId}  {
+      allow read, update: if (isSignedIn() && isUser(userId));
+      // allow update: if (isSignedIn() && isUser(userId) && onlyAuthorizedUserDocumentFieldUpdated());
+      allow create, delete: if false;
+
+      // User status
+      match /status/{statusId} {
+        allow read: if (isSignedIn() && isUser(userId));
+        allow write: if false
+      }
+    }
+  }
+}

@@ -1,0 +1,52 @@
+{
+  "name": "firebase-emulator-unit-test",
+  "description": "[![License](https://img.shields.io/badge/license-MIT-blue)](./LICENSE)",
+  "version": "0.1.0",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "lint": "npx eslint ./src --ext .js,.jsx,.ts,.tsx --fix",
+    "lint:test": "npx eslint ./test --ext .js,.jsx,.ts,.tsx --fix",
+    "build": "tsc --sourceMap",
+    "build:watch": "tsc-watch --onSuccess \"npm test\" --sourceMap",
+    "clean": "rm -rf ./dist",
+    "test": "mocha --require ts-node/register ./test/*.spec.ts --timeout 10000"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/gpfister/firebase-emulator-unit-test.git"
+  },
+  "keywords": [
+    "typescript",
+    "firebase",
+    "emulator",
+    "unit",
+    "test"
+  ],
+  "author": "Greg PFISTER",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/gpfister/firebase-emulator-unit-test/issues"
+  },
+  "homepage": "https://github.com/gpfister/firebase-emulator-unit-test#readme",
+  "dependencies": {
+    "axios": "^0.21.1",
+    "firebase": "^9.0.1",
+    "firebase-admin": "^9.11.1"
+  },
+  "devDependencies": {
+    "@types/chai": "^4.2.21",
+    "@types/mocha": "^9.0.0",
+    "@types/node": "^16.7.8",
+    "@typescript-eslint/eslint-plugin": "^4.30.0",
+    "@typescript-eslint/parser": "^4.30.0",
+    "chai": "^4.3.4",
+    "eslint": "^7.32.0",
+    "eslint-config-standard": "^16.0.3",
+    "eslint-plugin-chai-friendly": "^0.7.2",
+    "mocha": "^9.1.1",
+    "ts-node": "^10.2.1",
+    "tsc-watch": "^4.5.0",
+    "typescript": "^4.4.2"
+  }
+}

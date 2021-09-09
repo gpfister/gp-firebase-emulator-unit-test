@@ -1,6 +1,7 @@
 [![License](https://img.shields.io/badge/license-MIT-blue)](./LICENSE)
 
 # firebase-emulator-unit-test
+
 A unit test lib to use with the emulator
 
 ## About
@@ -11,7 +12,6 @@ This projects aims at providing a set of tools to unit test a [Firebase](https:/
 - Firebase
 - Functions
 - Storage
-- PubSub
 
 This is a work in progress at the moment.
 
@@ -31,9 +31,15 @@ This is a work in progress at the moment.
 
 ## Build and unit test
 
-### Source code
+### Build code
 
 ### Unit test
+
+#### Setup example
+
+#### Prepare test
+
+#### Run test
 
 ### Documentation
 
