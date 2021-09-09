@@ -11,8 +11,15 @@ import * as functions from 'firebase-functions';
 
 import { GPFirebaseAuthModule } from './firebase_auth';
 import { GPFirebaseFirestoreModule } from './firebase_firestore';
+import { GPFirebaseFunctionsModule } from './firebase_functions';
 
 admin.initializeApp();
+
+// The addition function
+export const add = functions
+  .region('europe-west1')
+  .https
+  .onCall((data, context) => GPFirebaseFunctionsModule.additionController.add(data, context));
 
 // On user creation
 export const onUserAccountCreated = functions

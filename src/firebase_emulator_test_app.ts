@@ -28,6 +28,7 @@ export type GPRunAuthenticatedPromise = (userCredential: UserCredential) => Prom
  */
 export class GPFirebaseEmulatorTestApp {
   projectId: string
+  region?: string
   storageBucket?: string
   hubHostname: string
   hubPort: number
@@ -41,6 +42,7 @@ export class GPFirebaseEmulatorTestApp {
 
   constructor(options: GPFirebaseEmulatorTestAppOption) {
     this.projectId = options.projectId;
+    this.region = options.region;
     this.storageBucket = options.storageBucket;
     this.hubHostname = options.hubHostname || 'localhost';
     this.hubPort = options.hubPort || 4400;
@@ -73,7 +75,7 @@ export class GPFirebaseEmulatorTestApp {
         }
 
         if (this.functionsEmulatorHostConfig) {
-          const functions = getFunctions(this.firebaseApp);
+          const functions = getFunctions(this.firebaseApp, this.region);
           connectFunctionsEmulator(functions, this.functionsEmulatorHostConfig.hostname, this.functionsEmulatorHostConfig.port);
         }
 
@@ -96,7 +98,7 @@ export class GPFirebaseEmulatorTestApp {
   }
 
   public get functions() {
-    if (this.firebaseApp && this.functionsEmulatorHostConfig) return getFunctions(this.firebaseApp);
+    if (this.firebaseApp && this.functionsEmulatorHostConfig) return getFunctions(this.firebaseApp, this.region);
     else throw Error('Functions emulator is not set');
   }
 

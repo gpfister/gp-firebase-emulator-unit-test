@@ -1,4 +1,5 @@
 {
   "projectId": "PROJECT_ID",
+  "region": "REGION"
   "firebaseEmulatorConfigFilePath": "./example/firebase.json"
 }

@@ -8,7 +8,7 @@
 
 import { firestore } from 'firebase-admin';
 
-export interface GPUserPrivateProfileModel {
+export type GPUserPrivateProfileModel = {
   fullName: string;
   dateOfBirth?: firestore.Timestamp;
 }

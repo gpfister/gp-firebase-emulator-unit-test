@@ -6,7 +6,7 @@
  * @copyright (C) 2021, Greg PFISTER. MIT License
  */
 
-import { GPUserController } from '../firebase_auth/controllers/controllers/user.controller';
+import { GPUserController } from './controllers/user.controller';
 
 export class GPFirebaseFirestoreModule {
   static userController = new GPUserController();

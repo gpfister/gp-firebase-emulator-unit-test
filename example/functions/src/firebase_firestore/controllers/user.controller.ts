@@ -10,8 +10,8 @@ import * as admin from 'firebase-admin';
 
 import { DocumentSnapshot } from 'firebase-functions/lib/providers/firestore';
 import { Change, EventContext } from 'firebase-functions';
-import { GPUserDocument } from '../../../firebase_firestore/models/user_document.model';
-import { GPUserStatusDocument } from '../../../firebase_firestore/models/user_status_document.model';
+import { GPUserDocument } from '../models/user_document.model';
+import { GPUserStatusDocument } from '../models/user_status_document.model';
 
 export class GPUserController {
   async onUpdate(snapshot: Change<DocumentSnapshot>, context: EventContext) {

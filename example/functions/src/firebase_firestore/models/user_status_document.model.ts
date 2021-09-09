@@ -8,7 +8,7 @@
 
 import { firestore } from 'firebase-admin';
 
-export interface GPUserStatusDocument {
+export type GPUserStatusDocument = {
   isProfileComplete: boolean;
   creationDate: firestore.Timestamp;
 }

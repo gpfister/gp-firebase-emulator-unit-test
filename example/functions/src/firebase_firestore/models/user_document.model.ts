@@ -11,7 +11,7 @@ import { firestore } from 'firebase-admin';
 import { GPUserPublicProfileModel } from './user_public_profile.model';
 import { GPUserPrivateProfileModel } from './user_private_profile.model';
 
-export interface GPUserDocument {
+export type GPUserDocument = {
   userId: string;
   email: string;
   publicProfile: GPUserPublicProfileModel;

@@ -10,8 +10,11 @@ import { describe, it } from 'mocha';
 import { expect } from 'chai';
 import { readFile } from 'fs/promises';
 
-import { GPFirebaseEmulatorTestApp, initAdminTestApp, initTestApp, assertFails, assertSucceeds, sleep, firebaseAuth, firebaseFirestore, GPFirebaseEmulatorAdminTestApp } from '../src';
+import { GPFirebaseEmulatorTestApp, initAdminTestApp, initTestApp, assertFails, assertSucceeds, sleep, firebaseAuth, firebaseFirestore, firebaseFunctions, GPFirebaseEmulatorAdminTestApp } from '../src';
 import { GPFirebaseEmulatorHostConfig } from '../src/types/firebase_emulator_host_config';
+
+import { GPAdditionRequest } from '../example/functions/src/firebase_functions/models/addtion_request.model';
+import { GPAddtionResponse } from '../example/functions/src/firebase_functions/models/addtion_response.model';
 
 let firebaseTestApp: GPFirebaseEmulatorTestApp | undefined;
 let firebaseTestAdminApp: GPFirebaseEmulatorAdminTestApp | undefined;
@@ -25,18 +28,20 @@ describe('FirebaseEmulatorUnitTest', async () => {
       const hubPort = testParameters.hub?.port as number | undefined;
 
       const projectId = testParameters.projectId as string | undefined;
+      const region = testParameters.region as string | undefined;
       const expectedEmulatorConfigFilePath = testParameters.firebaseEmulatorConfigFilePath as string | undefined;
 
       expect(projectId, 'Missing projectId in test.json').to.not.be.undefined;
+      expect(region, 'Missing projectId in test.json').to.not.be.undefined;
       expect(expectedEmulatorConfigFilePath, 'Missing path to the expected emulator config file in test.json').to.not.be.undefined;
 
-      if (expectedEmulatorConfigFilePath && projectId) {
+      if (expectedEmulatorConfigFilePath && projectId && region) {
         const expectedEmulatorConfig = JSON.parse((await readFile(expectedEmulatorConfigFilePath)).toString()).emulators;
 
         expect(expectedEmulatorConfig, 'Either the expected emulator configuration file is missing, or no emulator are set').to.not.be.undefined;
 
         if (expectedEmulatorConfig) {
-          firebaseTestApp = await initTestApp({ projectId: projectId, hubHostname: hubHostname, hubPort: hubPort });
+          firebaseTestApp = await initTestApp({ projectId: projectId, region: region, hubHostname: hubHostname, hubPort: hubPort });
 
           // Authentification emulator
           if (firebaseTestApp.authEmulatorHostConfig && expectedEmulatorConfig.auth) {
@@ -256,6 +261,15 @@ describe('Tests regular actions', async () => {
           expect(userData.isProfileComplete, `Document '/users/${userCredential.user.uid}/status/${userCredential.user.uid}' / Field 'isProfileComplete' is not a string`).to.be.a('boolean');
           expect(userData.isProfileComplete, `Document '/users/${userCredential.user.uid}/status/${userCredential.user.uid}' / Field 'isProfileComplete' value mismatched`).to.be.false;
         }
+      });
+    });
+    it('Call the add function', async () => {
+      await firebaseTestApp!.runAuthenticated('test_1@example.com', 'Test+1234', async () => {
+        const functions = firebaseTestApp!.functions;
+        const addFunction = firebaseFunctions.httpsCallable<GPAdditionRequest, GPAddtionResponse>(functions, 'add');
+        const response = await assertSucceeds(addFunction({ a: 10, b: 20 }));
+        const data = response.data;
+        expect(data.result, '').to.equal(10 + 20);
       });
     });
     it('Create anoter user', async () => {
