@@ -99,4 +99,12 @@ export class GPFirebaseEmulatorAdminTestApp {
       await auth.deleteUsers(userList.map((user) => user.uid));
     }
   }
+
+  public async enableBackgroundTriggers() {
+    await axios.put(`http://${this.hubHostname}:${this.hubPort}/functions/enableBackgroundTriggers`);
+  }
+
+  public async disableBackgroundTriggers() {
+    await axios.put(`http://${this.hubHostname}:${this.hubPort}/functions/disableBackgroundTriggers`);
+  }
 }

@@ -21,3 +21,6 @@ export * as firebaseAuth from 'firebase/auth';
 export * as firebaseFirestore from 'firebase/firestore';
 export * as firebaseFunctions from 'firebase/functions';
 export * as firebaseStorage from 'firebase/storage';
+export * as adminFirebaseAuth from 'firebase-admin/lib/auth';
+export * as adminFirebaseFirestore from 'firebase-admin/lib/firestore';
+export * as adminFirebaseStorage from 'firebase-admin/lib/storage';

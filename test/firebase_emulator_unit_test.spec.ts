@@ -247,7 +247,7 @@ describe('Tests regular actions', async () => {
         }
       });
     });
-    it('Check user statust document has been created', async () => {
+    it('Check user status document has been created', async () => {
       await firebaseTestApp!.runAuthenticated('test_1@example.com', 'Test+1234', async (userCredential) => {
         const db = firebaseTestApp!.firestore;
         const userDoc = await assertSucceeds(firebaseFirestore.getDoc(firebaseFirestore.doc(db, `/users/${userCredential.user.uid}/status/${userCredential.user.uid}`)));
