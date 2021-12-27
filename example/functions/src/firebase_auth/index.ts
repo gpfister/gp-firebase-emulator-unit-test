@@ -1,9 +1,9 @@
 /**
- * firebase-emulator-unit-test/example/functions
+ * gp-firebase-emulator-unit-test/example/functions
  *
  * @author Greg PFISTER
  * @license MIT
- * @copyright (C) 2021, Greg PFISTER. MIT License
+ * @copyright (C) 2021, Greg PFISTER
  */
 
 import { GPUserAccountController } from './controllers/user_account.controller';

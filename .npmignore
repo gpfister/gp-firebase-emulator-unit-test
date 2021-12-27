@@ -1,0 +1,16 @@
+# Sources
+src/
+example/
+test/
+.eslint*
+tsconfig*
+test.json*
+
+# Packages
+*.zip
+*.gz
+*.tgz
+*.tar.gz
+
+# Documentation
+doc/

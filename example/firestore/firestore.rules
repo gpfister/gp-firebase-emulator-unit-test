@@ -1,9 +1,9 @@
 /**
- * firebase-emulator-unit-test/example
+ * gp-firebase-emulator-unit-test/example
  *
  * @author Greg PFISTER
  * @license MIT
- * @copyright (C) 2021, Greg PFISTER. MIT License
+ * @copyright (C) 2021, Greg PFISTER
  */
 
 rules_version = '2';

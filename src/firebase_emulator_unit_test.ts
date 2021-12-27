@@ -1,15 +1,19 @@
-/**
- * firebase-emulator-unit-test
- *
- * @author Greg PFISTER
- * @license MIT
- * @copyright (C) 2021, Greg PFISTER. MIT License
- */
+// gp-firebase-emulator-unit-test
+//
+// Greg PFISTER
+// (C) 2021, Greg PFISTER. MIT License
+//
+// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+// IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+// FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.IN NO EVENT SHALL THE
+// AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+// LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+// SOFTWARE.
 
-// import { hostname } from 'os';
 import { GPFirebaseEmulatorTestApp } from './firebase_emulator_test_app';
 import { GPFirebaseEmulatorAdminTestApp } from './firebase_emulator_admin_test_app';
-import { GPFirebaseEmulatorTestAppOption } from './types/firebase_emulator_test_app_options';
+import { GPFirebaseEmulatorTestAppOption } from './types/firebase_emulator_test_app_options.type';
 
 // private static _app?: GPFirebaseEmulatorTestApp;
 

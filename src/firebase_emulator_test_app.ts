@@ -1,22 +1,26 @@
-/**
- * firebase-emulator-unit-test
- *
- * @author Greg PFISTER
- * @license MIT
- * @copyright (C) 2021, Greg PFISTER. MIT License
- */
+// gp-firebase-emulator-unit-test
+//
+// Greg PFISTER
+// (C) 2021, Greg PFISTER. MIT License
+//
+// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+// IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+// FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.IN NO EVENT SHALL THE
+// AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+// LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+// SOFTWARE.
 
 import { FirebaseApp, initializeApp } from 'firebase/app';
-import { getAuth, connectAuthEmulator, UserCredential, signInWithEmailAndPassword, signOut } from 'firebase/auth';
+import { getAuth, connectAuthEmulator, signInWithEmailAndPassword, signOut } from 'firebase/auth';
 import { connectFirestoreEmulator, getFirestore } from 'firebase/firestore';
 import { connectFunctionsEmulator, getFunctions } from 'firebase/functions';
 import { connectStorageEmulator, getStorage } from 'firebase/storage';
-import { GPFirebaseEmulatorConfig } from './types/firebase_emulator_config';
+import { GPFirebaseEmulatorConfig } from './models/firebase_emulator_config.model';
 
-import { GPFirebaseEmulatorHostConfig } from './types/firebase_emulator_host_config';
-import { GPFirebaseEmulatorTestAppOption } from './types/firebase_emulator_test_app_options';
-
-export type GPRunAuthenticatedPromise = (userCredential: UserCredential) => Promise<void>;
+import { GPFirebaseEmulatorHostConfig } from './types/firebase_emulator_host_config.type';
+import { GPFirebaseEmulatorTestAppOption } from './types/firebase_emulator_test_app_options.type';
+import { GPRunAuthenticatedPromise } from './types';
 
 /**
  * Represents an Emulator test app.

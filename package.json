@@ -1,6 +1,6 @@
 {
-  "name": "firebase-emulator-unit-test",
-  "description": "[![License](https://img.shields.io/badge/license-MIT-blue)](./LICENSE)",
+  "name": "gp-firebase-emulator-unit-test",
+  "description": "A unit test lib to use with the firebase emulator",
   "version": "0.1.0",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -9,12 +9,13 @@
     "lint:test": "npx eslint ./test --ext .js,.jsx,.ts,.tsx --fix",
     "build": "tsc --sourceMap",
     "build:watch": "tsc-watch --onSuccess \"npm test\" --sourceMap",
-    "clean": "rm -rf ./dist",
+    "build:doc": "npx typedoc ./src/index.ts --out ./doc/api --excludeExternals --excludePrivate --excludeProtected --excludeInternal --readme none",
+    "clean": "rm -rf ./dist ./doc/api",
     "test": "mocha --require ts-node/register ./test/*.spec.ts --timeout 10000"
   },
   "repository": {
     "type": "git",
-    "url": "git+ssh://git@github.com/gpfister/firebase-emulator-unit-test.git"
+    "url": "git+ssh://git@github.com/gpfister/gp-firebase-emulator-unit-test.git"
   },
   "keywords": [
     "typescript",
@@ -26,9 +27,9 @@
   "author": "Greg PFISTER",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/gpfister/firebase-emulator-unit-test/issues"
+    "url": "https://github.com/gpfister/gp-firebase-emulator-unit-test/issues"
   },
-  "homepage": "https://github.com/gpfister/firebase-emulator-unit-test#readme",
+  "homepage": "https://github.com/gpfister/gp-firebase-emulator-unit-test#readme",
   "dependencies": {
     "axios": "^0.21.4",
     "firebase": "^9.6.1",
@@ -47,6 +48,8 @@
     "mocha": "^9.1.3",
     "ts-node": "^10.4.0",
     "tsc-watch": "^4.6.0",
+    "typedoc": "^0.22.10",
+    "typedoc-plugin-markdown": "^3.11.8",
     "typescript": "^4.5.4"
   }
 }

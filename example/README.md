@@ -50,17 +50,3 @@ The emulators can be started by running the command
 ```bash
 $ npm run emul
 ```
-
-## License
-
-This is provided under the MIT licence. For more detail check
-[the following file](../LICENSE).
-
-## Contributions
-
-Please refer to the contribution of the overall projects, which can be found
-[here](../CONTRIBUTION.md).
-
-Contributions to this example should reflect additionnal test cases required to
-unit test properly. Otherwise there's really no reason to make it any more
-complicated.

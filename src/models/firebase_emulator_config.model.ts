@@ -1,6 +1,26 @@
-import * as axios from 'axios';
-import { GPFirebaseEmulatorHostConfig } from './firebase_emulator_host_config';
+// gp-firebase-emulator-unit-test
+//
+// Greg PFISTER
+// (C) 2021, Greg PFISTER. MIT License
+//
+// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+// IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+// FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.IN NO EVENT SHALL THE
+// AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+// LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+// SOFTWARE.
 
+import * as axios from 'axios';
+import { GPFirebaseEmulatorHostConfig } from '../types/';
+
+/**
+ * Internal object which holds the configuration of the Firebase Emulator,
+ * queried from the hub.
+ *
+ * @since 0.1.0
+ * @internal
+ */
 export class GPFirebaseEmulatorConfig {
   authEmulatorHostConfig?: GPFirebaseEmulatorHostConfig
   firestoreEmulatorHostConfig?: GPFirebaseEmulatorHostConfig

@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+ssh://git@github.com/gpfister/firebase-emulator-unit-test.git",
+    "url": "git+ssh://git@github.com/gpfister/gp-firebase-emulator-unit-test.git",
     "directory": "exmaple"
   },
   "keywords": [
@@ -21,7 +21,7 @@
   "author": "Greg PFISTER",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/gpfister/firebase-emulator-unit-test/issues"
+    "url": "https://github.com/gpfister/gp-firebase-emulator-unit-test/issues"
   },
-  "homepage": "https://github.com/gpfister/firebase-emulator-unit-test#readme"
+  "homepage": "https://github.com/gpfister/gp-firebase-emulator-unit-test#readme"
 }
