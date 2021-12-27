@@ -22,20 +22,20 @@ import { GPFirebaseEmulatorHostConfig } from '../types/';
  * @internal
  */
 export class GPFirebaseEmulatorConfig {
-  authEmulatorHostConfig?: GPFirebaseEmulatorHostConfig
-  firestoreEmulatorHostConfig?: GPFirebaseEmulatorHostConfig
-  functionsEmulatorHostConfig?: GPFirebaseEmulatorHostConfig
-  storageEmulatorHostConfig?: GPFirebaseEmulatorHostConfig
+  _authEmulatorHostConfig?: GPFirebaseEmulatorHostConfig
+  _firestoreEmulatorHostConfig?: GPFirebaseEmulatorHostConfig
+  _functionsEmulatorHostConfig?: GPFirebaseEmulatorHostConfig
+  _storageEmulatorHostConfig?: GPFirebaseEmulatorHostConfig
 
   private constructor(authEmulator?: GPFirebaseEmulatorHostConfig,
     firestoreEmulator?: GPFirebaseEmulatorHostConfig,
     functionsEmulator?: GPFirebaseEmulatorHostConfig,
     storageEmulator?: GPFirebaseEmulatorHostConfig
   ) {
-    this.authEmulatorHostConfig = authEmulator;
-    this.firestoreEmulatorHostConfig = firestoreEmulator;
-    this.functionsEmulatorHostConfig = functionsEmulator;
-    this.storageEmulatorHostConfig = storageEmulator;
+    this._authEmulatorHostConfig = authEmulator;
+    this._firestoreEmulatorHostConfig = firestoreEmulator;
+    this._functionsEmulatorHostConfig = functionsEmulator;
+    this._storageEmulatorHostConfig = storageEmulator;
   }
 
   public static async fromHubApi(hubHostname?: string, hubPort?: number) {
@@ -52,4 +52,9 @@ export class GPFirebaseEmulatorConfig {
       emulatorConfig.storage ? { hostname: emulatorConfig.storage.host || 'localhost', port: emulatorConfig.storage.port || 9199 } : undefined
     );
   }
+
+  public get authEmulatorHostConfig() { return this._authEmulatorHostConfig; }
+  public get firestoreEmulatorHostConfig() { return this._firestoreEmulatorHostConfig; }
+  public get functionsEmulatorHostConfig() { return this._functionsEmulatorHostConfig; }
+  public get storageEmulatorHostConfig() { return this._storageEmulatorHostConfig; }
 }

@@ -20,85 +20,76 @@ import { GPFirebaseEmulatorTestAppOption } from './types/firebase_emulator_test_
 
 /**
  * Represents an Emulator test app.
- *
- * @property {string} projectId The Firebase Project Id
- * @property {string} storageBucket The Firebase Storage Bucket
- * @property {string} hubHostname The Firebase Emulator hub hostname
- * @property {string} hubPort The Firebase Emulator hub port number
  */
 export class GPFirebaseEmulatorAdminTestApp {
-  projectId: string
-  storageBucket?: string
-  hubHostname: string
-  hubPort: number
+  private _projectId: string
+  private _storageBucket?: string
+  private _hubHostname: string
+  private _hubPort: number
 
-  authEmulatorHostConfig?: GPFirebaseEmulatorHostConfig
-  firestoreEmulatorHostConfig?: GPFirebaseEmulatorHostConfig
-  storageEmulatorHostConfig?: GPFirebaseEmulatorHostConfig
+  private _authEmulatorHostConfig?: GPFirebaseEmulatorHostConfig
+  private _firestoreEmulatorHostConfig?: GPFirebaseEmulatorHostConfig
+  private _storageEmulatorHostConfig?: GPFirebaseEmulatorHostConfig
 
   private firebaseApp?: admin.app.App
 
   constructor(options: GPFirebaseEmulatorTestAppOption) {
-    this.projectId = options.projectId;
-    this.storageBucket = options.storageBucket;
-    this.hubHostname = options.hubHostname || 'localhost';
-    this.hubPort = options.hubPort || 4400;
+    this._projectId = options.projectId;
+    this._storageBucket = options.storageBucket;
+    this._hubHostname = options.hubHostname || 'localhost';
+    this._hubPort = options.hubPort || 4400;
   }
 
   async init() {
     if (!this.firebaseApp) {
-      const emulatorConfig = await GPFirebaseEmulatorConfig.fromHubApi(this.hubHostname, this.hubPort);
+      const emulatorConfig = await GPFirebaseEmulatorConfig.fromHubApi(this._hubHostname, this._hubPort);
 
-      this.authEmulatorHostConfig = emulatorConfig.authEmulatorHostConfig;
-      this.firestoreEmulatorHostConfig = emulatorConfig.firestoreEmulatorHostConfig;
+      this._authEmulatorHostConfig = emulatorConfig.authEmulatorHostConfig;
+      this._firestoreEmulatorHostConfig = emulatorConfig.firestoreEmulatorHostConfig;
       // this.functionsEmulatorHostConfig = emulatorConfig.functionsEmulatorHostConfig;
-      this.storageEmulatorHostConfig = emulatorConfig.storageEmulatorHostConfig;
+      this._storageEmulatorHostConfig = emulatorConfig.storageEmulatorHostConfig;
 
-      if (this.authEmulatorHostConfig || this.firestoreEmulatorHostConfig || this.storageEmulatorHostConfig) {
-        if (this.authEmulatorHostConfig) {
-          process.env.FIREBASE_AUTH_EMULATOR_HOST = `${this.authEmulatorHostConfig.hostname}:${this.authEmulatorHostConfig.port}`;
+      if (this._authEmulatorHostConfig || this._firestoreEmulatorHostConfig || this._storageEmulatorHostConfig) {
+        if (this._authEmulatorHostConfig) {
+          process.env.FIREBASE_AUTH_EMULATOR_HOST = `${this._authEmulatorHostConfig.hostname}:${this._authEmulatorHostConfig.port}`;
         }
 
-        if (this.firestoreEmulatorHostConfig) {
-          // const firestore = getFirestore(this.firebaseApp);
-          // connectFirestoreEmulator(firestore, this.firestoreEmulatorHostConfig.hostname, this.firestoreEmulatorHostConfig.port);
-          process.env.FIRESTORE_EMULATOR_HOST = `${this.firestoreEmulatorHostConfig.hostname}:${this.firestoreEmulatorHostConfig.port}`;
+        if (this._firestoreEmulatorHostConfig) {
+          process.env.FIRESTORE_EMULATOR_HOST = `${this._firestoreEmulatorHostConfig.hostname}:${this._firestoreEmulatorHostConfig.port}`;
         }
 
-        if (this.storageEmulatorHostConfig) {
-          // const storage = getStorage(this.firebaseApp);
-          // connectStorageEmulator(storage, this.storageEmulatorHostConfig.hostname, this.storageEmulatorHostConfig.port);
-          process.env.FIREBASE_STORAGE_EMULATOR_HOST = `${this.storageEmulatorHostConfig.hostname}:${this.storageEmulatorHostConfig.port}`;
+        if (this._storageEmulatorHostConfig) {
+          process.env.FIREBASE_STORAGE_EMULATOR_HOST = `${this._storageEmulatorHostConfig.hostname}:${this._storageEmulatorHostConfig.port}`;
         }
 
-        this.firebaseApp = admin.initializeApp({ projectId: this.projectId }, 'app-' + new Date().getTime() + '-' + Math.random());
+        this.firebaseApp = admin.initializeApp({ projectId: this._projectId, storageBucket: this._storageBucket }, 'app-' + new Date().getTime() + '-' + Math.random());
       }
     }
   }
 
   public get auth() {
-    if (this.firebaseApp && this.authEmulatorHostConfig) return this.firebaseApp.auth();
+    if (this.firebaseApp && this._authEmulatorHostConfig) return this.firebaseApp.auth();
     else throw Error('Auth emulator is not set');
   }
 
   public get firestore() {
-    if (this.firebaseApp && this.firestoreEmulatorHostConfig) return this.firebaseApp.firestore();
+    if (this.firebaseApp && this._firestoreEmulatorHostConfig) return this.firebaseApp.firestore();
     else throw Error('Firestore emulator is not set');
   }
 
   public get storage() {
-    if (this.firebaseApp && this.storageEmulatorHostConfig) return this.firebaseApp.storage();
+    if (this.firebaseApp && this._storageEmulatorHostConfig) return this.firebaseApp.storage();
     else throw Error('Storage emulator is not set');
   }
 
   public async cleanAllData() {
-    if (this.firestoreEmulatorHostConfig) {
-      await axios.delete(`http://${this.firestoreEmulatorHostConfig.hostname}:${this.firestoreEmulatorHostConfig.port}/emulator/v1/projects/${this.projectId}/databases/(default)/documents`);
+    if (this._firestoreEmulatorHostConfig) {
+      await axios.delete(`http://${this._firestoreEmulatorHostConfig.hostname}:${this._firestoreEmulatorHostConfig.port}/emulator/v1/projects/${this._projectId}/databases/(default)/documents`);
     }
   }
 
   public async cleanAllUsers() {
-    if (this.authEmulatorHostConfig && this.firebaseApp) {
+    if (this._authEmulatorHostConfig && this.firebaseApp) {
       const auth = this.auth;
       const userList = (await auth.listUsers()).users;
       await auth.deleteUsers(userList.map((user) => user.uid));
@@ -106,10 +97,14 @@ export class GPFirebaseEmulatorAdminTestApp {
   }
 
   public async enableBackgroundTriggers() {
-    await axios.put(`http://${this.hubHostname}:${this.hubPort}/functions/enableBackgroundTriggers`);
+    await axios.put(`http://${this._hubHostname}:${this._hubPort}/functions/enableBackgroundTriggers`);
   }
 
   public async disableBackgroundTriggers() {
-    await axios.put(`http://${this.hubHostname}:${this.hubPort}/functions/disableBackgroundTriggers`);
+    await axios.put(`http://${this._hubHostname}:${this._hubPort}/functions/disableBackgroundTriggers`);
   }
+
+  public get authEmulatorHostConfig() { return this._authEmulatorHostConfig; }
+  public get firestoreEmulatorHostConfig() { return this._firestoreEmulatorHostConfig; }
+  public get storageEmulatorHostConfig() { return this._storageEmulatorHostConfig; }
 }

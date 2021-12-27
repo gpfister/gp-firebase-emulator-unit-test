@@ -4,35 +4,20 @@
 
 Represents an Emulator test app.
 
-**`property`** {string} projectId The Firebase Project Id
-
-**`property`** {string} storageBucket The Firebase Storage Bucket
-
-**`property`** {string} hubHostname The Firebase Emulator hub hostname
-
-**`property`** {string} hubPort The Firebase Emulator hub port number
-
 ## Table of contents
 
 ### Constructors
 
 - [constructor](GPFirebaseEmulatorAdminTestApp.md#constructor)
 
-### Properties
-
-- [authEmulatorHostConfig](GPFirebaseEmulatorAdminTestApp.md#authemulatorhostconfig)
-- [firestoreEmulatorHostConfig](GPFirebaseEmulatorAdminTestApp.md#firestoreemulatorhostconfig)
-- [hubHostname](GPFirebaseEmulatorAdminTestApp.md#hubhostname)
-- [hubPort](GPFirebaseEmulatorAdminTestApp.md#hubport)
-- [projectId](GPFirebaseEmulatorAdminTestApp.md#projectid)
-- [storageBucket](GPFirebaseEmulatorAdminTestApp.md#storagebucket)
-- [storageEmulatorHostConfig](GPFirebaseEmulatorAdminTestApp.md#storageemulatorhostconfig)
-
 ### Accessors
 
 - [auth](GPFirebaseEmulatorAdminTestApp.md#auth)
+- [authEmulatorHostConfig](GPFirebaseEmulatorAdminTestApp.md#authemulatorhostconfig)
 - [firestore](GPFirebaseEmulatorAdminTestApp.md#firestore)
+- [firestoreEmulatorHostConfig](GPFirebaseEmulatorAdminTestApp.md#firestoreemulatorhostconfig)
 - [storage](GPFirebaseEmulatorAdminTestApp.md#storage)
+- [storageEmulatorHostConfig](GPFirebaseEmulatorAdminTestApp.md#storageemulatorhostconfig)
 
 ### Methods
 
@@ -56,77 +41,7 @@ Represents an Emulator test app.
 
 #### Defined in
 
-[firebase_emulator_admin_test_app.ts:41](https://github.com/gpfister/gp-firebase-emulator-unit-test/blob/50fa7cb/src/firebase_emulator_admin_test_app.ts#L41)
-
-## Properties
-
-### authEmulatorHostConfig
-
-• `Optional` **authEmulatorHostConfig**: [`GPFirebaseEmulatorHostConfig`](../README.md#gpfirebaseemulatorhostconfig)
-
-#### Defined in
-
-[firebase_emulator_admin_test_app.ts:35](https://github.com/gpfister/gp-firebase-emulator-unit-test/blob/50fa7cb/src/firebase_emulator_admin_test_app.ts#L35)
-
-___
-
-### firestoreEmulatorHostConfig
-
-• `Optional` **firestoreEmulatorHostConfig**: [`GPFirebaseEmulatorHostConfig`](../README.md#gpfirebaseemulatorhostconfig)
-
-#### Defined in
-
-[firebase_emulator_admin_test_app.ts:36](https://github.com/gpfister/gp-firebase-emulator-unit-test/blob/50fa7cb/src/firebase_emulator_admin_test_app.ts#L36)
-
-___
-
-### hubHostname
-
-• **hubHostname**: `string`
-
-#### Defined in
-
-[firebase_emulator_admin_test_app.ts:32](https://github.com/gpfister/gp-firebase-emulator-unit-test/blob/50fa7cb/src/firebase_emulator_admin_test_app.ts#L32)
-
-___
-
-### hubPort
-
-• **hubPort**: `number`
-
-#### Defined in
-
-[firebase_emulator_admin_test_app.ts:33](https://github.com/gpfister/gp-firebase-emulator-unit-test/blob/50fa7cb/src/firebase_emulator_admin_test_app.ts#L33)
-
-___
-
-### projectId
-
-• **projectId**: `string`
-
-#### Defined in
-
-[firebase_emulator_admin_test_app.ts:30](https://github.com/gpfister/gp-firebase-emulator-unit-test/blob/50fa7cb/src/firebase_emulator_admin_test_app.ts#L30)
-
-___
-
-### storageBucket
-
-• `Optional` **storageBucket**: `string`
-
-#### Defined in
-
-[firebase_emulator_admin_test_app.ts:31](https://github.com/gpfister/gp-firebase-emulator-unit-test/blob/50fa7cb/src/firebase_emulator_admin_test_app.ts#L31)
-
-___
-
-### storageEmulatorHostConfig
-
-• `Optional` **storageEmulatorHostConfig**: [`GPFirebaseEmulatorHostConfig`](../README.md#gpfirebaseemulatorhostconfig)
-
-#### Defined in
-
-[firebase_emulator_admin_test_app.ts:37](https://github.com/gpfister/gp-firebase-emulator-unit-test/blob/50fa7cb/src/firebase_emulator_admin_test_app.ts#L37)
+[firebase_emulator_admin_test_app.ts:36](https://github.com/gpfister/gp-firebase-emulator-unit-test/blob/e95425b/src/firebase_emulator_admin_test_app.ts#L36)
 
 ## Accessors
 
@@ -140,7 +55,21 @@ ___
 
 #### Defined in
 
-[firebase_emulator_admin_test_app.ts:79](https://github.com/gpfister/gp-firebase-emulator-unit-test/blob/50fa7cb/src/firebase_emulator_admin_test_app.ts#L79)
+[firebase_emulator_admin_test_app.ts:70](https://github.com/gpfister/gp-firebase-emulator-unit-test/blob/e95425b/src/firebase_emulator_admin_test_app.ts#L70)
+
+___
+
+### authEmulatorHostConfig
+
+• `get` **authEmulatorHostConfig**(): `undefined` \| [`GPFirebaseEmulatorHostConfig`](../README.md#gpfirebaseemulatorhostconfig)
+
+#### Returns
+
+`undefined` \| [`GPFirebaseEmulatorHostConfig`](../README.md#gpfirebaseemulatorhostconfig)
+
+#### Defined in
+
+[firebase_emulator_admin_test_app.ts:107](https://github.com/gpfister/gp-firebase-emulator-unit-test/blob/e95425b/src/firebase_emulator_admin_test_app.ts#L107)
 
 ___
 
@@ -154,7 +83,21 @@ ___
 
 #### Defined in
 
-[firebase_emulator_admin_test_app.ts:84](https://github.com/gpfister/gp-firebase-emulator-unit-test/blob/50fa7cb/src/firebase_emulator_admin_test_app.ts#L84)
+[firebase_emulator_admin_test_app.ts:75](https://github.com/gpfister/gp-firebase-emulator-unit-test/blob/e95425b/src/firebase_emulator_admin_test_app.ts#L75)
+
+___
+
+### firestoreEmulatorHostConfig
+
+• `get` **firestoreEmulatorHostConfig**(): `undefined` \| [`GPFirebaseEmulatorHostConfig`](../README.md#gpfirebaseemulatorhostconfig)
+
+#### Returns
+
+`undefined` \| [`GPFirebaseEmulatorHostConfig`](../README.md#gpfirebaseemulatorhostconfig)
+
+#### Defined in
+
+[firebase_emulator_admin_test_app.ts:108](https://github.com/gpfister/gp-firebase-emulator-unit-test/blob/e95425b/src/firebase_emulator_admin_test_app.ts#L108)
 
 ___
 
@@ -168,7 +111,21 @@ ___
 
 #### Defined in
 
-[firebase_emulator_admin_test_app.ts:89](https://github.com/gpfister/gp-firebase-emulator-unit-test/blob/50fa7cb/src/firebase_emulator_admin_test_app.ts#L89)
+[firebase_emulator_admin_test_app.ts:80](https://github.com/gpfister/gp-firebase-emulator-unit-test/blob/e95425b/src/firebase_emulator_admin_test_app.ts#L80)
+
+___
+
+### storageEmulatorHostConfig
+
+• `get` **storageEmulatorHostConfig**(): `undefined` \| [`GPFirebaseEmulatorHostConfig`](../README.md#gpfirebaseemulatorhostconfig)
+
+#### Returns
+
+`undefined` \| [`GPFirebaseEmulatorHostConfig`](../README.md#gpfirebaseemulatorhostconfig)
+
+#### Defined in
+
+[firebase_emulator_admin_test_app.ts:109](https://github.com/gpfister/gp-firebase-emulator-unit-test/blob/e95425b/src/firebase_emulator_admin_test_app.ts#L109)
 
 ## Methods
 
@@ -182,7 +139,7 @@ ___
 
 #### Defined in
 
-[firebase_emulator_admin_test_app.ts:94](https://github.com/gpfister/gp-firebase-emulator-unit-test/blob/50fa7cb/src/firebase_emulator_admin_test_app.ts#L94)
+[firebase_emulator_admin_test_app.ts:85](https://github.com/gpfister/gp-firebase-emulator-unit-test/blob/e95425b/src/firebase_emulator_admin_test_app.ts#L85)
 
 ___
 
@@ -196,7 +153,7 @@ ___
 
 #### Defined in
 
-[firebase_emulator_admin_test_app.ts:100](https://github.com/gpfister/gp-firebase-emulator-unit-test/blob/50fa7cb/src/firebase_emulator_admin_test_app.ts#L100)
+[firebase_emulator_admin_test_app.ts:91](https://github.com/gpfister/gp-firebase-emulator-unit-test/blob/e95425b/src/firebase_emulator_admin_test_app.ts#L91)
 
 ___
 
@@ -210,7 +167,7 @@ ___
 
 #### Defined in
 
-[firebase_emulator_admin_test_app.ts:112](https://github.com/gpfister/gp-firebase-emulator-unit-test/blob/50fa7cb/src/firebase_emulator_admin_test_app.ts#L112)
+[firebase_emulator_admin_test_app.ts:103](https://github.com/gpfister/gp-firebase-emulator-unit-test/blob/e95425b/src/firebase_emulator_admin_test_app.ts#L103)
 
 ___
 
@@ -224,7 +181,7 @@ ___
 
 #### Defined in
 
-[firebase_emulator_admin_test_app.ts:108](https://github.com/gpfister/gp-firebase-emulator-unit-test/blob/50fa7cb/src/firebase_emulator_admin_test_app.ts#L108)
+[firebase_emulator_admin_test_app.ts:99](https://github.com/gpfister/gp-firebase-emulator-unit-test/blob/e95425b/src/firebase_emulator_admin_test_app.ts#L99)
 
 ___
 
@@ -238,4 +195,4 @@ ___
 
 #### Defined in
 
-[firebase_emulator_admin_test_app.ts:48](https://github.com/gpfister/gp-firebase-emulator-unit-test/blob/50fa7cb/src/firebase_emulator_admin_test_app.ts#L48)
+[firebase_emulator_admin_test_app.ts:43](https://github.com/gpfister/gp-firebase-emulator-unit-test/blob/e95425b/src/firebase_emulator_admin_test_app.ts#L43)
