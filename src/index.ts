@@ -18,7 +18,7 @@
  * @module
  */
 
-export type { GPFirebaseEmulatorTestAppOption, GPFirebaseEmulatorHostConfig, GPRunAuthenticatedPromise } from './types/';
+export type { GPFirebaseEmulatorTestAppOption, GPFirebaseEmulatorHostConfig } from './types/';
 export { GPFirebaseEmulatorTestApp } from './firebase_emulator_test_app';
 export { GPFirebaseEmulatorAdminTestApp } from './firebase_emulator_admin_test_app';
 export {
@@ -29,10 +29,11 @@ export {
   sleep
 } from './firebase_emulator_unit_test';
 
-export * as firebaseAuth from 'firebase/auth';
-export * as firebaseFirestore from 'firebase/firestore';
-export * as firebaseFunctions from 'firebase/functions';
-export * as firebaseStorage from 'firebase/storage';
-export * as adminFirebaseAuth from 'firebase-admin/lib/auth';
-export * as adminFirebaseFirestore from 'firebase-admin/lib/firestore';
-export * as adminFirebaseStorage from 'firebase-admin/lib/storage';
+// This should be imported on each project
+// export * as firebaseAuth from 'firebase/auth';
+// export * as firebaseFirestore from 'firebase/firestore';
+// export * as firebaseFunctions from 'firebase/functions';
+// export * as firebaseStorage from 'firebase/storage';
+// export * as adminFirebaseAuth from 'firebase-admin/lib/auth';
+// export * as adminFirebaseFirestore from 'firebase-admin/lib/firestore';
+// export * as adminFirebaseStorage from 'firebase-admin/lib/storage';

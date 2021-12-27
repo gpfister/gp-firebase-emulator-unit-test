@@ -12,7 +12,7 @@
 // SOFTWARE.
 
 import { FirebaseApp, initializeApp } from 'firebase/app';
-import { getAuth, connectAuthEmulator, signInWithEmailAndPassword, signOut } from 'firebase/auth';
+import { getAuth, connectAuthEmulator, signInWithEmailAndPassword, signOut, UserCredential } from 'firebase/auth';
 import { connectFirestoreEmulator, getFirestore } from 'firebase/firestore';
 import { connectFunctionsEmulator, getFunctions } from 'firebase/functions';
 import { connectStorageEmulator, getStorage } from 'firebase/storage';
@@ -20,7 +20,7 @@ import { GPFirebaseEmulatorConfig } from './models/firebase_emulator_config.mode
 
 import { GPFirebaseEmulatorHostConfig } from './types/firebase_emulator_host_config.type';
 import { GPFirebaseEmulatorTestAppOption } from './types/firebase_emulator_test_app_options.type';
-import { GPRunAuthenticatedPromise } from './types';
+// import { GPRunAuthenticatedPromise } from './types';
 
 /**
  * Represents an Emulator test app.
@@ -111,7 +111,7 @@ export class GPFirebaseEmulatorTestApp {
     else throw Error('Storage emulator is not set');
   }
 
-  public runAuthenticated(email: string, password: string, pr: GPRunAuthenticatedPromise): Promise<void> {
+  public runAuthenticated(email: string, password: string, pr: (userCredential: UserCredential) => Promise<void>): Promise<void> {
     const auth = this.auth;
 
     return signInWithEmailAndPassword(auth, email, password)

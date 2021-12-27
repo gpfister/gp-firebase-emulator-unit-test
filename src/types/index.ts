@@ -13,4 +13,3 @@
 
 export type { GPFirebaseEmulatorHostConfig } from './firebase_emulator_host_config.type';
 export type { GPFirebaseEmulatorTestAppOption } from './firebase_emulator_test_app_options.type';
-export type { GPRunAuthenticatedPromise } from './run_authenticated_promise.type';

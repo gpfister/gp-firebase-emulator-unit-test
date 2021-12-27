@@ -11,13 +11,15 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 
-
+import * as firebaseAuth from 'firebase/auth';
+import * as firebaseFirestore from 'firebase/firestore';
+import * as firebaseFunctions from 'firebase/functions';
 import { describe, it } from 'mocha';
 import { expect } from 'chai';
 import { readFile } from 'fs/promises';
 
-import { GPFirebaseEmulatorTestApp, initAdminTestApp, initTestApp, assertFails, assertSucceeds, sleep, firebaseAuth, firebaseFirestore, firebaseFunctions, GPFirebaseEmulatorAdminTestApp } from '../src';
-import { GPFirebaseEmulatorHostConfig } from '../src/types/firebase_emulator_host_config';
+import { GPFirebaseEmulatorTestApp, initAdminTestApp, initTestApp, assertFails, assertSucceeds, sleep, GPFirebaseEmulatorAdminTestApp } from '../src';
+import { GPFirebaseEmulatorHostConfig } from '../src/types/';
 
 import { GPAdditionRequest } from '../example/functions/src/firebase_functions/models/addtion_request.model';
 import { GPAddtionResponse } from '../example/functions/src/firebase_functions/models/addtion_response.model';

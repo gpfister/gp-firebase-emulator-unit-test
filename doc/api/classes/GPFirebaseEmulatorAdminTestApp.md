@@ -56,7 +56,7 @@ Represents an Emulator test app.
 
 #### Defined in
 
-[firebase_emulator_admin_test_app.ts:42](https://github.com/gpfister/gp-firebase-emulator-unit-test/blob/4f94699/src/firebase_emulator_admin_test_app.ts#L42)
+[firebase_emulator_admin_test_app.ts:41](https://github.com/gpfister/gp-firebase-emulator-unit-test/blob/50fa7cb/src/firebase_emulator_admin_test_app.ts#L41)
 
 ## Properties
 
@@ -66,7 +66,7 @@ Represents an Emulator test app.
 
 #### Defined in
 
-[firebase_emulator_admin_test_app.ts:36](https://github.com/gpfister/gp-firebase-emulator-unit-test/blob/4f94699/src/firebase_emulator_admin_test_app.ts#L36)
+[firebase_emulator_admin_test_app.ts:35](https://github.com/gpfister/gp-firebase-emulator-unit-test/blob/50fa7cb/src/firebase_emulator_admin_test_app.ts#L35)
 
 ___
 
@@ -76,7 +76,7 @@ ___
 
 #### Defined in
 
-[firebase_emulator_admin_test_app.ts:37](https://github.com/gpfister/gp-firebase-emulator-unit-test/blob/4f94699/src/firebase_emulator_admin_test_app.ts#L37)
+[firebase_emulator_admin_test_app.ts:36](https://github.com/gpfister/gp-firebase-emulator-unit-test/blob/50fa7cb/src/firebase_emulator_admin_test_app.ts#L36)
 
 ___
 
@@ -86,7 +86,7 @@ ___
 
 #### Defined in
 
-[firebase_emulator_admin_test_app.ts:33](https://github.com/gpfister/gp-firebase-emulator-unit-test/blob/4f94699/src/firebase_emulator_admin_test_app.ts#L33)
+[firebase_emulator_admin_test_app.ts:32](https://github.com/gpfister/gp-firebase-emulator-unit-test/blob/50fa7cb/src/firebase_emulator_admin_test_app.ts#L32)
 
 ___
 
@@ -96,7 +96,7 @@ ___
 
 #### Defined in
 
-[firebase_emulator_admin_test_app.ts:34](https://github.com/gpfister/gp-firebase-emulator-unit-test/blob/4f94699/src/firebase_emulator_admin_test_app.ts#L34)
+[firebase_emulator_admin_test_app.ts:33](https://github.com/gpfister/gp-firebase-emulator-unit-test/blob/50fa7cb/src/firebase_emulator_admin_test_app.ts#L33)
 
 ___
 
@@ -106,7 +106,7 @@ ___
 
 #### Defined in
 
-[firebase_emulator_admin_test_app.ts:31](https://github.com/gpfister/gp-firebase-emulator-unit-test/blob/4f94699/src/firebase_emulator_admin_test_app.ts#L31)
+[firebase_emulator_admin_test_app.ts:30](https://github.com/gpfister/gp-firebase-emulator-unit-test/blob/50fa7cb/src/firebase_emulator_admin_test_app.ts#L30)
 
 ___
 
@@ -116,7 +116,7 @@ ___
 
 #### Defined in
 
-[firebase_emulator_admin_test_app.ts:32](https://github.com/gpfister/gp-firebase-emulator-unit-test/blob/4f94699/src/firebase_emulator_admin_test_app.ts#L32)
+[firebase_emulator_admin_test_app.ts:31](https://github.com/gpfister/gp-firebase-emulator-unit-test/blob/50fa7cb/src/firebase_emulator_admin_test_app.ts#L31)
 
 ___
 
@@ -126,7 +126,7 @@ ___
 
 #### Defined in
 
-[firebase_emulator_admin_test_app.ts:38](https://github.com/gpfister/gp-firebase-emulator-unit-test/blob/4f94699/src/firebase_emulator_admin_test_app.ts#L38)
+[firebase_emulator_admin_test_app.ts:37](https://github.com/gpfister/gp-firebase-emulator-unit-test/blob/50fa7cb/src/firebase_emulator_admin_test_app.ts#L37)
 
 ## Accessors
 
@@ -140,7 +140,7 @@ ___
 
 #### Defined in
 
-[firebase_emulator_admin_test_app.ts:80](https://github.com/gpfister/gp-firebase-emulator-unit-test/blob/4f94699/src/firebase_emulator_admin_test_app.ts#L80)
+[firebase_emulator_admin_test_app.ts:79](https://github.com/gpfister/gp-firebase-emulator-unit-test/blob/50fa7cb/src/firebase_emulator_admin_test_app.ts#L79)
 
 ___
 
@@ -154,7 +154,7 @@ ___
 
 #### Defined in
 
-[firebase_emulator_admin_test_app.ts:85](https://github.com/gpfister/gp-firebase-emulator-unit-test/blob/4f94699/src/firebase_emulator_admin_test_app.ts#L85)
+[firebase_emulator_admin_test_app.ts:84](https://github.com/gpfister/gp-firebase-emulator-unit-test/blob/50fa7cb/src/firebase_emulator_admin_test_app.ts#L84)
 
 ___
 
@@ -168,7 +168,7 @@ ___
 
 #### Defined in
 
-[firebase_emulator_admin_test_app.ts:90](https://github.com/gpfister/gp-firebase-emulator-unit-test/blob/4f94699/src/firebase_emulator_admin_test_app.ts#L90)
+[firebase_emulator_admin_test_app.ts:89](https://github.com/gpfister/gp-firebase-emulator-unit-test/blob/50fa7cb/src/firebase_emulator_admin_test_app.ts#L89)
 
 ## Methods
 
@@ -182,7 +182,7 @@ ___
 
 #### Defined in
 
-[firebase_emulator_admin_test_app.ts:95](https://github.com/gpfister/gp-firebase-emulator-unit-test/blob/4f94699/src/firebase_emulator_admin_test_app.ts#L95)
+[firebase_emulator_admin_test_app.ts:94](https://github.com/gpfister/gp-firebase-emulator-unit-test/blob/50fa7cb/src/firebase_emulator_admin_test_app.ts#L94)
 
 ___
 
@@ -196,7 +196,7 @@ ___
 
 #### Defined in
 
-[firebase_emulator_admin_test_app.ts:101](https://github.com/gpfister/gp-firebase-emulator-unit-test/blob/4f94699/src/firebase_emulator_admin_test_app.ts#L101)
+[firebase_emulator_admin_test_app.ts:100](https://github.com/gpfister/gp-firebase-emulator-unit-test/blob/50fa7cb/src/firebase_emulator_admin_test_app.ts#L100)
 
 ___
 
@@ -210,7 +210,7 @@ ___
 
 #### Defined in
 
-[firebase_emulator_admin_test_app.ts:113](https://github.com/gpfister/gp-firebase-emulator-unit-test/blob/4f94699/src/firebase_emulator_admin_test_app.ts#L113)
+[firebase_emulator_admin_test_app.ts:112](https://github.com/gpfister/gp-firebase-emulator-unit-test/blob/50fa7cb/src/firebase_emulator_admin_test_app.ts#L112)
 
 ___
 
@@ -224,7 +224,7 @@ ___
 
 #### Defined in
 
-[firebase_emulator_admin_test_app.ts:109](https://github.com/gpfister/gp-firebase-emulator-unit-test/blob/4f94699/src/firebase_emulator_admin_test_app.ts#L109)
+[firebase_emulator_admin_test_app.ts:108](https://github.com/gpfister/gp-firebase-emulator-unit-test/blob/50fa7cb/src/firebase_emulator_admin_test_app.ts#L108)
 
 ___
 
@@ -238,4 +238,4 @@ ___
 
 #### Defined in
 
-[firebase_emulator_admin_test_app.ts:49](https://github.com/gpfister/gp-firebase-emulator-unit-test/blob/4f94699/src/firebase_emulator_admin_test_app.ts#L49)
+[firebase_emulator_admin_test_app.ts:48](https://github.com/gpfister/gp-firebase-emulator-unit-test/blob/50fa7cb/src/firebase_emulator_admin_test_app.ts#L48)

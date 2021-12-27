@@ -50,6 +50,8 @@ Here's a simple example which would create a user, post document and
 check the document.
 
 ```typescript
+import * as firebaseAuth from 'firebase/auth';
+import * as firebaseFirestore from 'firebase/firestore';
 import { 
   initAdminTestApp, 
   initTestApp, 

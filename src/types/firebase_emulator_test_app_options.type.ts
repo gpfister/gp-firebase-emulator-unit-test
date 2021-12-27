@@ -36,7 +36,7 @@ export type GPFirebaseEmulatorTestAppOption = {
   hubHostname?: string
 
   /**
-   * The hub port (if not specified, the port 4500 is used)
+   * The hub port (if not specified, the port 4400 is used)
    */
   hubPort?: number
 }

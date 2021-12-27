@@ -19,7 +19,6 @@ gp-firebase-emulator-unit-test
 
 - [GPFirebaseEmulatorHostConfig](README.md#gpfirebaseemulatorhostconfig)
 - [GPFirebaseEmulatorTestAppOption](README.md#gpfirebaseemulatortestappoption)
-- [GPRunAuthenticatedPromise](README.md#gprunauthenticatedpromise)
 
 ### Functions
 
@@ -48,7 +47,7 @@ Simple type to store the emulator host config
 
 #### Defined in
 
-types/firebase_emulator_host_config.type.ts:19
+[types/firebase_emulator_host_config.type.ts:19](https://github.com/gpfister/gp-firebase-emulator-unit-test/blob/50fa7cb/src/types/firebase_emulator_host_config.type.ts#L19)
 
 ___
 
@@ -65,43 +64,14 @@ The test app option to initialise the unit test app
 | Name | Type | Description |
 | :------ | :------ | :------ |
 | `hubHostname?` | `string` | The hub hostname (if not specified, localhost will be used) |
-| `hubPort?` | `number` | The hub port (if not specified, the port 4500 is used) |
+| `hubPort?` | `number` | The hub port (if not specified, the port 4400 is used) |
 | `projectId` | `string` | The Firebase project Id |
 | `region?` | `string` | The Firebase region Id (required when using Functions) |
 | `storageBucket?` | `string` | The Firebase storage bucket (required with using Cloud Storage) |
 
 #### Defined in
 
-types/firebase_emulator_test_app_options.type.ts:19
-
-___
-
-### GPRunAuthenticatedPromise
-
-Ƭ **GPRunAuthenticatedPromise**: (`userCredential`: `UserCredential`) => `Promise`<`void`\>
-
-#### Type declaration
-
-▸ (`userCredential`): `Promise`<`void`\>
-
-Define the format of the promise that will be run in an authenticated context,
-using function `GPFirebaseEmulatorTestApp.runAuthenticated`
-
-**`since`** 0.1.0
-
-##### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `userCredential` | `UserCredential` |
-
-##### Returns
-
-`Promise`<`void`\>
-
-#### Defined in
-
-types/run_authenticated_promise.type.ts:21
+[types/firebase_emulator_test_app_options.type.ts:19](https://github.com/gpfister/gp-firebase-emulator-unit-test/blob/50fa7cb/src/types/firebase_emulator_test_app_options.type.ts#L19)
 
 ## Functions
 
@@ -139,7 +109,7 @@ A promise that is fulfilled if pr is rejected with a
 
 #### Defined in
 
-[firebase_emulator_unit_test.ts:109](https://github.com/gpfister/gp-firebase-emulator-unit-test/blob/4f94699/src/firebase_emulator_unit_test.ts#L109)
+[firebase_emulator_unit_test.ts:107](https://github.com/gpfister/gp-firebase-emulator-unit-test/blob/50fa7cb/src/firebase_emulator_unit_test.ts#L107)
 
 ___
 
@@ -179,7 +149,7 @@ the promise itself, not changed
 
 #### Defined in
 
-[firebase_emulator_unit_test.ts:83](https://github.com/gpfister/gp-firebase-emulator-unit-test/blob/4f94699/src/firebase_emulator_unit_test.ts#L83)
+[firebase_emulator_unit_test.ts:81](https://github.com/gpfister/gp-firebase-emulator-unit-test/blob/50fa7cb/src/firebase_emulator_unit_test.ts#L81)
 
 ___
 
@@ -211,7 +181,7 @@ A promise which would
 
 #### Defined in
 
-[firebase_emulator_unit_test.ts:60](https://github.com/gpfister/gp-firebase-emulator-unit-test/blob/4f94699/src/firebase_emulator_unit_test.ts#L60)
+[firebase_emulator_unit_test.ts:58](https://github.com/gpfister/gp-firebase-emulator-unit-test/blob/50fa7cb/src/firebase_emulator_unit_test.ts#L58)
 
 ___
 
@@ -242,7 +212,7 @@ A promise which would resolve
 
 #### Defined in
 
-[firebase_emulator_unit_test.ts:37](https://github.com/gpfister/gp-firebase-emulator-unit-test/blob/4f94699/src/firebase_emulator_unit_test.ts#L37)
+[firebase_emulator_unit_test.ts:35](https://github.com/gpfister/gp-firebase-emulator-unit-test/blob/50fa7cb/src/firebase_emulator_unit_test.ts#L35)
 
 ___
 
@@ -275,4 +245,4 @@ await sleep(10000); // Sleep for 10 seconds
 
 #### Defined in
 
-[firebase_emulator_unit_test.ts:159](https://github.com/gpfister/gp-firebase-emulator-unit-test/blob/4f94699/src/firebase_emulator_unit_test.ts#L159)
+[firebase_emulator_unit_test.ts:157](https://github.com/gpfister/gp-firebase-emulator-unit-test/blob/50fa7cb/src/firebase_emulator_unit_test.ts#L157)
