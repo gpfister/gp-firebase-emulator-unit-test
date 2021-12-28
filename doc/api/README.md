@@ -47,7 +47,7 @@ Simple type to store the emulator host config
 
 #### Defined in
 
-[types/firebase_emulator_host_config.type.ts:19](https://github.com/gpfister/gp-firebase-emulator-unit-test/blob/e95425b/src/types/firebase_emulator_host_config.type.ts#L19)
+[types/firebase_emulator_host_config.type.ts:19](https://github.com/gpfister/gp-firebase-emulator-unit-test/blob/edb8010/src/types/firebase_emulator_host_config.type.ts#L19)
 
 ___
 
@@ -71,7 +71,7 @@ The test app option to initialise the unit test app
 
 #### Defined in
 
-[types/firebase_emulator_test_app_options.type.ts:19](https://github.com/gpfister/gp-firebase-emulator-unit-test/blob/e95425b/src/types/firebase_emulator_test_app_options.type.ts#L19)
+[types/firebase_emulator_test_app_options.type.ts:19](https://github.com/gpfister/gp-firebase-emulator-unit-test/blob/edb8010/src/types/firebase_emulator_test_app_options.type.ts#L19)
 
 ## Functions
 
@@ -109,7 +109,7 @@ A promise that is fulfilled if pr is rejected with a
 
 #### Defined in
 
-[firebase_emulator_unit_test.ts:107](https://github.com/gpfister/gp-firebase-emulator-unit-test/blob/e95425b/src/firebase_emulator_unit_test.ts#L107)
+[firebase_emulator_unit_test.ts:107](https://github.com/gpfister/gp-firebase-emulator-unit-test/blob/edb8010/src/firebase_emulator_unit_test.ts#L107)
 
 ___
 
@@ -149,7 +149,7 @@ the promise itself, not changed
 
 #### Defined in
 
-[firebase_emulator_unit_test.ts:81](https://github.com/gpfister/gp-firebase-emulator-unit-test/blob/e95425b/src/firebase_emulator_unit_test.ts#L81)
+[firebase_emulator_unit_test.ts:81](https://github.com/gpfister/gp-firebase-emulator-unit-test/blob/edb8010/src/firebase_emulator_unit_test.ts#L81)
 
 ___
 
@@ -181,7 +181,7 @@ A promise which would
 
 #### Defined in
 
-[firebase_emulator_unit_test.ts:58](https://github.com/gpfister/gp-firebase-emulator-unit-test/blob/e95425b/src/firebase_emulator_unit_test.ts#L58)
+[firebase_emulator_unit_test.ts:58](https://github.com/gpfister/gp-firebase-emulator-unit-test/blob/edb8010/src/firebase_emulator_unit_test.ts#L58)
 
 ___
 
@@ -212,7 +212,7 @@ A promise which would resolve
 
 #### Defined in
 
-[firebase_emulator_unit_test.ts:35](https://github.com/gpfister/gp-firebase-emulator-unit-test/blob/e95425b/src/firebase_emulator_unit_test.ts#L35)
+[firebase_emulator_unit_test.ts:35](https://github.com/gpfister/gp-firebase-emulator-unit-test/blob/edb8010/src/firebase_emulator_unit_test.ts#L35)
 
 ___
 
@@ -245,4 +245,4 @@ await sleep(10000); // Sleep for 10 seconds
 
 #### Defined in
 
-[firebase_emulator_unit_test.ts:157](https://github.com/gpfister/gp-firebase-emulator-unit-test/blob/e95425b/src/firebase_emulator_unit_test.ts#L157)
+[firebase_emulator_unit_test.ts:157](https://github.com/gpfister/gp-firebase-emulator-unit-test/blob/edb8010/src/firebase_emulator_unit_test.ts#L157)
