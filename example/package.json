@@ -1,0 +1,27 @@
+{
+  "name": "gp-example",
+  "version": "1.0.0",
+  "description": "Example app for testing firebase-emulator-unit-test",
+  "main": "dist/index.js",
+  "scripts": {
+    "emul": "firebase emulators:start"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/gpfister/gp-firebase-emulator-unit-test.git",
+    "directory": "exmaple"
+  },
+  "keywords": [
+    "firebase",
+    "emulator",
+    "unit",
+    "test",
+    "example"
+  ],
+  "author": "Greg PFISTER",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/gpfister/gp-firebase-emulator-unit-test/issues"
+  },
+  "homepage": "https://github.com/gpfister/gp-firebase-emulator-unit-test#readme"
+}

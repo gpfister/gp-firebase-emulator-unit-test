@@ -1,0 +1,9 @@
+{
+  "projectId": "PROJECT_ID",
+  "region": "REGION",
+  "firebaseEmulatorConfigFilePath": "./example/firebase.json",  
+  "hub": {
+    "hostname": "localhost",
+    "port": "4400"
+  }
+}

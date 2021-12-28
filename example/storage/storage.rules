@@ -1,0 +1,45 @@
+/**
+ * gp-firebase-emulator-unit-test/example
+ *
+ * @author Greg PFISTER
+ * @license MIT
+ * @copyright (C) 2021, Greg PFISTER
+ */
+
+rules_version = '2';
+service firebase.storage {
+  match /b/{bucket}/o {
+
+    // Deny all first
+    match /{allPaths=**} {
+      allow read, write: if false;
+    }
+
+    // User signed in
+    function isSignedIn() {
+      return request.auth != null;
+    }
+
+    // Does the logged-in user match the requested userId?
+    function isUser(userId) {
+      return request.auth.uid == userId;
+    }
+    
+    // Public folders
+    match /public/{allPaths=**} {
+    	allow read: if true;
+      allow write: if false;
+    }
+
+    // User folder
+    match /users/{userId} {
+      allow read: if true;
+      allow write: if isSignedIn() && isUser(userId);
+
+      match /profileImages/{imageFile} {
+        allow read: if true;
+        allow write: if isSignedIn() && isUser(userId);
+      }
+    }
+  }
+}
