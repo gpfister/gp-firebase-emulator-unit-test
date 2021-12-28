@@ -1,4 +1,5 @@
 [![License](https://img.shields.io/badge/license-MIT-blue)](./LICENSE)
+[![node](https://img.shields.io/badge/node-16.x-233056)](https://nodejs.org)
 [![npm](https://img.shields.io/badge/npm-ready-cb3837)](./LICENSE)
 [![yarn](https://img.shields.io/badge/yarn-not%20ready-117cad)](./LICENSE)
 
@@ -8,20 +9,26 @@ A unit test lib to use with the Firebase emulator
 
 ## About
 
-This projects aims at providing a set of tools to unit test a 
-[Firebase](https://firebase.google.com) project using the 
-[emulator suite](https://firebase.google.com/docs/emulator-suite). 
+This projects aims at providing a set of tools to unit test a
+[Firebase](https://firebase.google.com) project using the
+[emulator suite](https://firebase.google.com/docs/emulator-suite).
 
 It currently supports:
+
 - Authentication
 - Firebase
 - Functions
 - Storage
 
-While there are a few alternative provided, this one used the Emulator Hub to 
-gather Emulators config (which one are activated, and its hostname and port 
+While there are a few alternative provided, this one used the Emulator Hub to
+gather Emulators config (which one are activated, and its hostname and port
 number). This allow to run the unit test separately from running the emulator,
 though it also works as running it as part of the emulator.
+
+## Requirements
+
+- Node LTS 16.x (not tested on 10.x, 12.x and 14.x)
+- firebase-tools v10.x
 
 ## Installation
 
@@ -35,33 +42,33 @@ npm install --save-dev gp-firebase-emulator-unit-test
 To add to your project using Javascript, you can can do something like:
 
 ```javascript
-const gpFirebaseEmulUT = require('gp-firebase-emulator-unit-test');
+const gpFirebaseEmulUT = require("gp-firebase-emulator-unit-test");
 ```
 
 If you are using Typescript, you can get the whole package with something like:
 
 ```typescript
-import * as gpFirebaseEmulUT from 'gp-firebase-emulator-unit-test';
+import * as gpFirebaseEmulUT from "gp-firebase-emulator-unit-test";
 ```
 
 ## Example (Typescript)
 
-Here's a simple example which would create a user, post document and 
+Here's a simple example which would create a user, post document and
 check the document.
 
 ```typescript
 import * as firebaseAuth from 'firebase/auth';
 import * as firebaseFirestore from 'firebase/firestore';
-import { 
-  initAdminTestApp, 
-  initTestApp, 
-  assertSucceeds, 
-  sleep, 
-  firebaseAuth, 
-  firebaseFirestore 
+import {
+  initAdminTestApp,
+  initTestApp,
+  assertSucceeds,
+  sleep,
+  firebaseAuth,
+  firebaseFirestore
   } from 'gp-firebase-emulator-unit-test';
 
-// Initialize the firebase test app, ssuming the Emulator Hub runs locally on 
+// Initialize the firebase test app, ssuming the Emulator Hub runs locally on
 // the standard port
 const firebaseTestApp = await initTestApp({ projectId: projectId, region: region });
 
@@ -91,7 +98,7 @@ await firebaseTestApp.runAuthenticated('test_1@example.com', 'Test+1234', async 
   if (postedDoc.exists) {
     if (postedDoc.data().hello !== 'world!') {
       // Handle the error
-    } 
+    }
   } else {
     // Handle the error
   }
@@ -107,7 +114,7 @@ The documentation to the api can be found [here](./doc/api)
 ## Build and unit test
 
 If you wish to build the source code and embed it in your app, or build and test
-a changes you would like to submit, please read the build instructions 
+a changes you would like to submit, please read the build instructions
 [here](./doc/build).
 
 ## Change log
@@ -122,7 +129,6 @@ workarounds.
 ## Acknowledgement
 
 This is strongly inspired by the npm package [@firebase/rules-unit-testing](https://www.npmjs.com/package/@firebase/rules-unit-testing) part of the [firebase/firebase-js-sdk](https://github.com/firebase/firebase-js-sdk) repository.
-
 
 ## Contributions
 

@@ -2,7 +2,7 @@
 
 # Class: GPFirebaseEmulatorAdminTestApp
 
-Represents an Emulator test app.
+Represents an Emulator test app with admin priviledge
 
 ## Table of contents
 
@@ -33,15 +33,17 @@ Represents an Emulator test app.
 
 • **new GPFirebaseEmulatorAdminTestApp**(`options`)
 
+Class constructor
+
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `options` | [`GPFirebaseEmulatorTestAppOption`](../README.md#gpfirebaseemulatortestappoption) |
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `options` | [`GPFirebaseEmulatorTestAppOption`](../README.md#gpfirebaseemulatortestappoption) | The options to setup the test app |
 
 #### Defined in
 
-[firebase_emulator_admin_test_app.ts:36](https://github.com/gpfister/gp-firebase-emulator-unit-test/blob/edb8010/src/firebase_emulator_admin_test_app.ts#L36)
+[firebase_emulator_admin_test_app.ts:40](https://github.com/gpfister/gp-firebase-emulator-unit-test/blob/921c823/src/firebase_emulator_admin_test_app.ts#L40)
 
 ## Accessors
 
@@ -49,13 +51,17 @@ Represents an Emulator test app.
 
 • `get` **auth**(): `Auth`
 
+Return the Auth client API module of the test app, if setup
+
+**`throws`** An error if the Auth emulator is not ready
+
 #### Returns
 
 `Auth`
 
 #### Defined in
 
-[firebase_emulator_admin_test_app.ts:70](https://github.com/gpfister/gp-firebase-emulator-unit-test/blob/edb8010/src/firebase_emulator_admin_test_app.ts#L70)
+[firebase_emulator_admin_test_app.ts:81](https://github.com/gpfister/gp-firebase-emulator-unit-test/blob/921c823/src/firebase_emulator_admin_test_app.ts#L81)
 
 ___
 
@@ -63,13 +69,15 @@ ___
 
 • `get` **authEmulatorHostConfig**(): `undefined` \| [`GPFirebaseEmulatorHostConfig`](../README.md#gpfirebaseemulatorhostconfig)
 
+Return the Auth emulator host config (hostname and port)
+
 #### Returns
 
 `undefined` \| [`GPFirebaseEmulatorHostConfig`](../README.md#gpfirebaseemulatorhostconfig)
 
 #### Defined in
 
-[firebase_emulator_admin_test_app.ts:107](https://github.com/gpfister/gp-firebase-emulator-unit-test/blob/edb8010/src/firebase_emulator_admin_test_app.ts#L107)
+[firebase_emulator_admin_test_app.ts:141](https://github.com/gpfister/gp-firebase-emulator-unit-test/blob/921c823/src/firebase_emulator_admin_test_app.ts#L141)
 
 ___
 
@@ -77,13 +85,17 @@ ___
 
 • `get` **firestore**(): `Firestore`
 
+Return the Cloud Firestore client API module of the test app, if setup
+
+**`throws`** An error if the Cloud Firestore emulator is not ready
+
 #### Returns
 
 `Firestore`
 
 #### Defined in
 
-[firebase_emulator_admin_test_app.ts:75](https://github.com/gpfister/gp-firebase-emulator-unit-test/blob/edb8010/src/firebase_emulator_admin_test_app.ts#L75)
+[firebase_emulator_admin_test_app.ts:90](https://github.com/gpfister/gp-firebase-emulator-unit-test/blob/921c823/src/firebase_emulator_admin_test_app.ts#L90)
 
 ___
 
@@ -91,13 +103,15 @@ ___
 
 • `get` **firestoreEmulatorHostConfig**(): `undefined` \| [`GPFirebaseEmulatorHostConfig`](../README.md#gpfirebaseemulatorhostconfig)
 
+Return the Cloud Firestore emulator host config (hostname and port)
+
 #### Returns
 
 `undefined` \| [`GPFirebaseEmulatorHostConfig`](../README.md#gpfirebaseemulatorhostconfig)
 
 #### Defined in
 
-[firebase_emulator_admin_test_app.ts:108](https://github.com/gpfister/gp-firebase-emulator-unit-test/blob/edb8010/src/firebase_emulator_admin_test_app.ts#L108)
+[firebase_emulator_admin_test_app.ts:146](https://github.com/gpfister/gp-firebase-emulator-unit-test/blob/921c823/src/firebase_emulator_admin_test_app.ts#L146)
 
 ___
 
@@ -105,13 +119,17 @@ ___
 
 • `get` **storage**(): `Storage`
 
+Return the Cloud Storage client API module of the test app, if setup
+
+**`throws`** An error if the Cloud Storage emulator is not ready
+
 #### Returns
 
 `Storage`
 
 #### Defined in
 
-[firebase_emulator_admin_test_app.ts:80](https://github.com/gpfister/gp-firebase-emulator-unit-test/blob/edb8010/src/firebase_emulator_admin_test_app.ts#L80)
+[firebase_emulator_admin_test_app.ts:99](https://github.com/gpfister/gp-firebase-emulator-unit-test/blob/921c823/src/firebase_emulator_admin_test_app.ts#L99)
 
 ___
 
@@ -119,13 +137,15 @@ ___
 
 • `get` **storageEmulatorHostConfig**(): `undefined` \| [`GPFirebaseEmulatorHostConfig`](../README.md#gpfirebaseemulatorhostconfig)
 
+Return the Cloud Storage emulator host config (hostname and port)
+
 #### Returns
 
 `undefined` \| [`GPFirebaseEmulatorHostConfig`](../README.md#gpfirebaseemulatorhostconfig)
 
 #### Defined in
 
-[firebase_emulator_admin_test_app.ts:109](https://github.com/gpfister/gp-firebase-emulator-unit-test/blob/edb8010/src/firebase_emulator_admin_test_app.ts#L109)
+[firebase_emulator_admin_test_app.ts:151](https://github.com/gpfister/gp-firebase-emulator-unit-test/blob/921c823/src/firebase_emulator_admin_test_app.ts#L151)
 
 ## Methods
 
@@ -133,13 +153,15 @@ ___
 
 ▸ **cleanAllData**(): `Promise`<`void`\>
 
+Clean all data in the database
+
 #### Returns
 
 `Promise`<`void`\>
 
 #### Defined in
 
-[firebase_emulator_admin_test_app.ts:85](https://github.com/gpfister/gp-firebase-emulator-unit-test/blob/edb8010/src/firebase_emulator_admin_test_app.ts#L85)
+[firebase_emulator_admin_test_app.ts:107](https://github.com/gpfister/gp-firebase-emulator-unit-test/blob/921c823/src/firebase_emulator_admin_test_app.ts#L107)
 
 ___
 
@@ -147,13 +169,15 @@ ___
 
 ▸ **cleanAllUsers**(): `Promise`<`void`\>
 
+Clean all users
+
 #### Returns
 
 `Promise`<`void`\>
 
 #### Defined in
 
-[firebase_emulator_admin_test_app.ts:91](https://github.com/gpfister/gp-firebase-emulator-unit-test/blob/edb8010/src/firebase_emulator_admin_test_app.ts#L91)
+[firebase_emulator_admin_test_app.ts:116](https://github.com/gpfister/gp-firebase-emulator-unit-test/blob/921c823/src/firebase_emulator_admin_test_app.ts#L116)
 
 ___
 
@@ -161,13 +185,15 @@ ___
 
 ▸ **disableBackgroundTriggers**(): `Promise`<`void`\>
 
+Disable Functions background triggers (on Firestore create/update/delete, on user creation/deletion, ...)
+
 #### Returns
 
 `Promise`<`void`\>
 
 #### Defined in
 
-[firebase_emulator_admin_test_app.ts:103](https://github.com/gpfister/gp-firebase-emulator-unit-test/blob/edb8010/src/firebase_emulator_admin_test_app.ts#L103)
+[firebase_emulator_admin_test_app.ts:134](https://github.com/gpfister/gp-firebase-emulator-unit-test/blob/921c823/src/firebase_emulator_admin_test_app.ts#L134)
 
 ___
 
@@ -175,13 +201,15 @@ ___
 
 ▸ **enableBackgroundTriggers**(): `Promise`<`void`\>
 
+Enable Functions background triggers (on Firestore create/update/delete, on user creation/deletion, ...)
+
 #### Returns
 
 `Promise`<`void`\>
 
 #### Defined in
 
-[firebase_emulator_admin_test_app.ts:99](https://github.com/gpfister/gp-firebase-emulator-unit-test/blob/edb8010/src/firebase_emulator_admin_test_app.ts#L99)
+[firebase_emulator_admin_test_app.ts:127](https://github.com/gpfister/gp-firebase-emulator-unit-test/blob/921c823/src/firebase_emulator_admin_test_app.ts#L127)
 
 ___
 
@@ -189,10 +217,12 @@ ___
 
 ▸ **init**(): `Promise`<`void`\>
 
+Init the app
+
 #### Returns
 
 `Promise`<`void`\>
 
 #### Defined in
 
-[firebase_emulator_admin_test_app.ts:43](https://github.com/gpfister/gp-firebase-emulator-unit-test/blob/edb8010/src/firebase_emulator_admin_test_app.ts#L43)
+[firebase_emulator_admin_test_app.ts:50](https://github.com/gpfister/gp-firebase-emulator-unit-test/blob/921c823/src/firebase_emulator_admin_test_app.ts#L50)

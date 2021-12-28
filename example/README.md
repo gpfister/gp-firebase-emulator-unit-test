@@ -12,6 +12,11 @@ feature to test:
 - Functions
 - Storage
 
+## Requirements
+
+- Node LTS 16.x (not tested on 10.x, 12.x and 14.x)
+- firebase-tools v10.x
+
 ## Getting started
 
 ### Setup Firebase

@@ -1,7 +1,7 @@
 {
   "name": "gp-firebase-emulator-unit-test",
   "description": "A unit test lib to use with the firebase emulator",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "scripts": {
@@ -12,6 +12,9 @@
     "build:doc": "npx typedoc ./src/index.ts --out ./doc/api --excludeExternals --excludePrivate --excludeProtected --excludeInternal --readme none",
     "clean": "rm -rf ./dist ./doc/api",
     "test": "mocha --require ts-node/register ./test/*.spec.ts --timeout 10000"
+  },
+  "engines": {
+    "node": ">=16.0.0 <17.0.0"
   },
   "repository": {
     "type": "git",
