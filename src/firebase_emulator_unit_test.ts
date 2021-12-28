@@ -21,10 +21,8 @@ import { GPFirebaseEmulatorTestAppOption } from './types/firebase_emulator_test_
  * Initialise an instance for the Firebase Emulator test app, which allow to
  * test as regular application (using the firebase-js-sdk package)
  *
- * @param {GPFirebaseEmulatorTestAppOption} options The options for setting up
- *                                                  the app
- * @returns {Promise<GPFirebaseEmulatorTestApp>} A promise which would resolve
- *                                               as a Firebase Emulator test app
+ * @param options The options for setting up the app
+ * @returns A promise which would resolve as a Firebase Emulator test app
  *
  * @public
  * @example
@@ -42,12 +40,8 @@ export async function initTestApp(options: GPFirebaseEmulatorTestAppOption): Pro
  * Initialise an instance for the Firebase Emulator admin test app, which allow to
  * test as regular application (using the firebase-admin package)
  *
- * @param {GPFirebaseEmulatorTestAppOption} options The options for setting up
- *                                                  the Firebase Emulator admin
- *                                                  test app
- * @returns {Promise<GPFirebaseEmulatorAdminTestApp>} A promise which would
- *                                                    resolve as a Firebase
- *                                                    Emulator admin test app
+ * @param options The options for setting up the Firebase Emulator admin test app
+ * @returns A promise which would resolve as a Firebase Emulator admin test app
  *
  * @public
  * @example
@@ -68,8 +62,8 @@ export async function initAdminTestApp(options: GPFirebaseEmulatorTestAppOption)
  * for documentational purposes in test code to emphasize that a certain request
  * should succeed (e.g. allowed by rules).
  *
- * @param {Promise<T>} pr the promise to be asserted
- * @return {Promise<T>} the promise itself, not changed
+ * @param pr the promise to be asserted
+ * @return the promise itself, not changed
  *
  * @public
  * @example
@@ -89,13 +83,12 @@ export async function assertSucceeds<T>(pr: Promise<T>): Promise<T> {
  * example below. This function can be used to only consider a specific error
  * code as a valid result.
  *
- * @param {Promise<T>}pr The promise to be asserted
- * @param {string} expectedErrorCode Specifiy an error code expected. If not
- *                                   specified, it assumes that any error code
- *                                   statisfies the expected faillure.
- * @return {Promise<T>} A promise that is fulfilled if pr is rejected with a
- *                      specific error code if requested, otherwise with any
- *                      other error code
+ * @param pr The promise to be asserted
+ * @param expectedErrorCode Specifiy an error code expected. If not specified, 
+ *                          it assumes that any error code statisfies the 
+ *                          expected faillure.
+ * @return A promise that is fulfilled if pr is rejected with a specific error 
+ *         code if requested, otherwise with any other error code
  * @public
  * @example
  * ```javascript

@@ -47,7 +47,7 @@ Simple type to store the emulator host config
 
 #### Defined in
 
-[types/firebase_emulator_host_config.type.ts:19](https://github.com/gpfister/gp-firebase-emulator-unit-test/blob/edb8010/src/types/firebase_emulator_host_config.type.ts#L19)
+[types/firebase_emulator_host_config.type.ts:19](https://github.com/gpfister/gp-firebase-emulator-unit-test/blob/921c823/src/types/firebase_emulator_host_config.type.ts#L19)
 
 ___
 
@@ -71,7 +71,7 @@ The test app option to initialise the unit test app
 
 #### Defined in
 
-[types/firebase_emulator_test_app_options.type.ts:19](https://github.com/gpfister/gp-firebase-emulator-unit-test/blob/edb8010/src/types/firebase_emulator_test_app_options.type.ts#L19)
+[types/firebase_emulator_test_app_options.type.ts:19](https://github.com/gpfister/gp-firebase-emulator-unit-test/blob/921c823/src/types/firebase_emulator_test_app_options.type.ts#L19)
 
 ## Functions
 
@@ -97,19 +97,18 @@ const doc = await assertFails(get(doc(firebaseTestApp.firestore, '/users/someone
 | Name | Type | Description |
 | :------ | :------ | :------ |
 | `pr` | `Promise`<`any`\> | The promise to be asserted |
-| `expectedErrorCode?` | `string` | Specifiy an error code expected. If not                                   specified, it assumes that any error code                                   statisfies the expected faillure. |
+| `expectedErrorCode?` | `string` | Specifiy an error code expected. If not specified,                          it assumes that any error code statisfies the                          expected faillure. |
 
 #### Returns
 
 `Promise`<`any`\>
 
-A promise that is fulfilled if pr is rejected with a
-                     specific error code if requested, otherwise with any
-                     other error code
+A promise that is fulfilled if pr is rejected with a specific error
+        code if requested, otherwise with any other error code
 
 #### Defined in
 
-[firebase_emulator_unit_test.ts:107](https://github.com/gpfister/gp-firebase-emulator-unit-test/blob/edb8010/src/firebase_emulator_unit_test.ts#L107)
+[firebase_emulator_unit_test.ts:100](https://github.com/gpfister/gp-firebase-emulator-unit-test/blob/921c823/src/firebase_emulator_unit_test.ts#L100)
 
 ___
 
@@ -149,7 +148,7 @@ the promise itself, not changed
 
 #### Defined in
 
-[firebase_emulator_unit_test.ts:81](https://github.com/gpfister/gp-firebase-emulator-unit-test/blob/edb8010/src/firebase_emulator_unit_test.ts#L81)
+[firebase_emulator_unit_test.ts:75](https://github.com/gpfister/gp-firebase-emulator-unit-test/blob/921c823/src/firebase_emulator_unit_test.ts#L75)
 
 ___
 
@@ -169,19 +168,17 @@ const firebaseTestApp = await GPFirebaseEmulatorUnitTest.initAdminTestApp({proje
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `options` | [`GPFirebaseEmulatorTestAppOption`](README.md#gpfirebaseemulatortestappoption) | The options for setting up                                                  the Firebase Emulator admin                                                  test app |
+| `options` | [`GPFirebaseEmulatorTestAppOption`](README.md#gpfirebaseemulatortestappoption) | The options for setting up the Firebase Emulator admin test app |
 
 #### Returns
 
 `Promise`<[`GPFirebaseEmulatorAdminTestApp`](classes/GPFirebaseEmulatorAdminTestApp.md)\>
 
-A promise which would
-                                                   resolve as a Firebase
-                                                   Emulator admin test app
+A promise which would resolve as a Firebase Emulator admin test app
 
 #### Defined in
 
-[firebase_emulator_unit_test.ts:58](https://github.com/gpfister/gp-firebase-emulator-unit-test/blob/edb8010/src/firebase_emulator_unit_test.ts#L58)
+[firebase_emulator_unit_test.ts:52](https://github.com/gpfister/gp-firebase-emulator-unit-test/blob/921c823/src/firebase_emulator_unit_test.ts#L52)
 
 ___
 
@@ -201,18 +198,17 @@ const firebaseTestApp = await GPFirebaseEmulatorUnitTest.initTestApp({projectId:
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `options` | [`GPFirebaseEmulatorTestAppOption`](README.md#gpfirebaseemulatortestappoption) | The options for setting up                                                  the app |
+| `options` | [`GPFirebaseEmulatorTestAppOption`](README.md#gpfirebaseemulatortestappoption) | The options for setting up the app |
 
 #### Returns
 
 `Promise`<[`GPFirebaseEmulatorTestApp`](classes/GPFirebaseEmulatorTestApp.md)\>
 
-A promise which would resolve
-                                              as a Firebase Emulator test app
+A promise which would resolve as a Firebase Emulator test app
 
 #### Defined in
 
-[firebase_emulator_unit_test.ts:35](https://github.com/gpfister/gp-firebase-emulator-unit-test/blob/edb8010/src/firebase_emulator_unit_test.ts#L35)
+[firebase_emulator_unit_test.ts:33](https://github.com/gpfister/gp-firebase-emulator-unit-test/blob/921c823/src/firebase_emulator_unit_test.ts#L33)
 
 ___
 
@@ -245,4 +241,4 @@ await sleep(10000); // Sleep for 10 seconds
 
 #### Defined in
 
-[firebase_emulator_unit_test.ts:157](https://github.com/gpfister/gp-firebase-emulator-unit-test/blob/edb8010/src/firebase_emulator_unit_test.ts#L157)
+[firebase_emulator_unit_test.ts:150](https://github.com/gpfister/gp-firebase-emulator-unit-test/blob/921c823/src/firebase_emulator_unit_test.ts#L150)

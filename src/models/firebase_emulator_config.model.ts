@@ -27,17 +27,33 @@ export class GPFirebaseEmulatorConfig {
   _functionsEmulatorHostConfig?: GPFirebaseEmulatorHostConfig
   _storageEmulatorHostConfig?: GPFirebaseEmulatorHostConfig
 
-  private constructor(authEmulator?: GPFirebaseEmulatorHostConfig,
-    firestoreEmulator?: GPFirebaseEmulatorHostConfig,
-    functionsEmulator?: GPFirebaseEmulatorHostConfig,
-    storageEmulator?: GPFirebaseEmulatorHostConfig
+  /**
+   * Class constructor using provided config for each emulator components
+   * @param authEmulatorConfig The Auth emulator config
+   * @param firestoreEmulatorConfig The Cloud Firestore emulator config
+   * @param functionsEmulatorConfig The Cloud Functions emulator config
+   * @param storageEmulatorConfig The Cloud Storage emulator config
+   */
+  private constructor(authEmulatorConfig?: GPFirebaseEmulatorHostConfig,
+    firestoreEmulatorConfig?: GPFirebaseEmulatorHostConfig,
+    functionsEmulatorConfig?: GPFirebaseEmulatorHostConfig,
+    storageEmulatorConfig?: GPFirebaseEmulatorHostConfig
   ) {
-    this._authEmulatorHostConfig = authEmulator;
-    this._firestoreEmulatorHostConfig = firestoreEmulator;
-    this._functionsEmulatorHostConfig = functionsEmulator;
-    this._storageEmulatorHostConfig = storageEmulator;
+    this._authEmulatorHostConfig = authEmulatorConfig;
+    this._firestoreEmulatorHostConfig = firestoreEmulatorConfig;
+    this._functionsEmulatorHostConfig = functionsEmulatorConfig;
+    this._storageEmulatorHostConfig = storageEmulatorConfig;
   }
 
+  /**
+   * Static method to parse information form the emulator HUB and return and 
+   * Firabase emulator config
+   * @param hubHostname The Hub hostname (default: localhost)
+   * @param hubPort The Hub port (default: 4400)
+   * @returns The Firabase emulator config for each activated components 
+   *          (limitted to Auth, Cloud Firestore, Cloud Functions and Cloud 
+   *          Storage)
+   */
   public static async fromHubApi(hubHostname?: string, hubPort?: number) {
     const intHubHostname = hubHostname || 'localhost';
     const intHubPort = hubPort || 4400;
@@ -53,8 +69,23 @@ export class GPFirebaseEmulatorConfig {
     );
   }
 
+  /**
+   * Return the configuration of the Auth emulator
+   */
   public get authEmulatorHostConfig() { return this._authEmulatorHostConfig; }
+
+  /**
+   * Return the configuration of the Cloud Firestore emulator
+   */
   public get firestoreEmulatorHostConfig() { return this._firestoreEmulatorHostConfig; }
+
+  /**
+   * Return the configuration of the Cloud Functions emulator
+   */
   public get functionsEmulatorHostConfig() { return this._functionsEmulatorHostConfig; }
+
+  /**
+   * Return the configuration of the Cloud Storage emulator
+   */
   public get storageEmulatorHostConfig() { return this._storageEmulatorHostConfig; }
 }
