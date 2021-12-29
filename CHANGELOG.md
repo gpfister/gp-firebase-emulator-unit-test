@@ -1,6 +1,12 @@
 # Change log
 
-## 0.1.2 - Dec 28th, 2021
+## 0.1.3 - Dec. 28th, 2021
+
+**Safe changes:**
+
+- Fix CD script which prevented from including the actual javascript
+
+## 0.1.2 - Dec. 28th, 2021
 
 **Safe changes:**
 
