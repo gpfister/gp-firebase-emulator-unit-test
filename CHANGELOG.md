@@ -1,5 +1,11 @@
 # Change log
 
+## 0.1.4 - Dec. 28th, 2021
+
+**Safe changes:**
+
+- Fix README.md
+
 ## 0.1.3 - Dec. 28th, 2021
 
 **Safe changes:**
