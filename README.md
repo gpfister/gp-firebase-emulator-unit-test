@@ -1,7 +1,6 @@
 [![License](https://img.shields.io/badge/license-MIT-blue)](./LICENSE)
 [![node](https://img.shields.io/badge/node-16.x-233056)](https://nodejs.org)
-[![npm](https://img.shields.io/badge/npm-ready-cb3837)](./LICENSE)
-[![yarn](https://img.shields.io/badge/yarn-not%20ready-117cad)](./LICENSE)
+[![npm](https://img.shields.io/badge/npm-ready-cb3837)](https://www.npmjs.com/package/gp-firebase-emulator-unit-test)
 
 # gp-firebase-emulator-unit-test
 
