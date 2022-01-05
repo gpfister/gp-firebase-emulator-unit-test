@@ -1,6 +1,6 @@
 # Change log
 
-## 0.1.4 - Dec. 28th, 2021
+## 0.1.4 - Jan. 5th, 2022
 
 **Safe changes:**
 
