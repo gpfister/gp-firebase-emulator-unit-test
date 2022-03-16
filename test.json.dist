@@ -1,6 +1,7 @@
 {
   "projectId": "PROJECT_ID",
   "region": "REGION",
+  "storageBucket": "default-bucket",
   "firebaseEmulatorConfigFilePath": "./example/firebase.json",  
   "hub": {
     "hostname": "localhost",
