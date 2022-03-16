@@ -25,10 +25,10 @@ If everything run fine, the compiled code can be found in the `./dist` folder.
 
 ### Start an emulator
 
-To unit test, you first need to start the example emulator. It is located in the 
+To unit test, you first need to start the example emulator. It is located in the
 `./example` folder.
 
-Follow the instructions [here](./example/README.md).
+Follow the instructions [here](../../example/README.md).
 
 ### Run the test script
 

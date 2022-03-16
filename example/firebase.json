@@ -14,29 +14,29 @@
   },
   "emulators": {
     "auth": {
-      "host": "localhost",
-      "port": 18001
+      "host": "oskey-dev.local.gpf.pw",
+      "port": 19001
     },
     "functions": {
-      "host": "localhost",
-      "port": 18003
+      "host": "oskey-dev.local.gpf.pw",
+      "port": 19003
     },
     "firestore": {
-      "host": "localhost",
-      "port": 18002
+      "host": "oskey-dev.local.gpf.pw",
+      "port": 19002
     },
     "storage": {
-      "host": "localhost",
-      "port": 18004
+      "host": "oskey-dev.local.gpf.pw",
+      "port": 19004
     },
     "ui": {
       "enabled": true,
-      "host": "localhost",
-      "port": 18000
+      "host": "oskey-dev.local.gpf.pw",
+      "port": 19000
     },
     "hub": {
-      "host": "localhost",
-      "port": 18099
+      "host": "oskey-dev.local.gpf.pw",
+      "port": 19099
     }
   }
 }
