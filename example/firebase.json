@@ -13,30 +13,13 @@
     "rules": "storage/storage.rules"
   },
   "emulators": {
-    "auth": {
-      "host": "localhost",
-      "port": 18001
-    },
-    "functions": {
-      "host": "localhost",
-      "port": 18003
-    },
-    "firestore": {
-      "host": "localhost",
-      "port": 18002
-    },
-    "storage": {
-      "host": "localhost",
-      "port": 18004
-    },
+    "auth": {},
+    "functions": {},
+    "firestore": {},
+    "storage": {},
     "ui": {
-      "enabled": true,
-      "host": "localhost",
-      "port": 18000
+      "enabled": true
     },
-    "hub": {
-      "host": "localhost",
-      "port": 18099
-    }
+    "hub": {}
   }
 }

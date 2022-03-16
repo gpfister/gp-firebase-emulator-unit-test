@@ -9,7 +9,7 @@
     "ecmaVersion": "latest",
     "sourceType": "module"
   },
-  "plugins": ["@typescript-eslint", "eslint-plugin-chai-friendly"],
+  "plugins": ["@typescript-eslint"],
   "rules": {
     "indent": ["error", 4],
     "linebreak-style": ["error", "unix"],

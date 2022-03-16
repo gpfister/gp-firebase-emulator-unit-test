@@ -9,5 +9,5 @@
 import { GPAdditionController } from './controllers/addition.controller';
 
 export class GPFirebaseFunctionsModule {
-  static additionController = new GPAdditionController();
+    static additionController = new GPAdditionController();
 }

@@ -14,6 +14,9 @@
 import { GPFirebaseEmulatorTestApp } from './firebase_emulator_test_app';
 import { GPFirebaseEmulatorAdminTestApp } from './firebase_emulator_admin_test_app';
 import { GPFirebaseEmulatorTestAppOption } from './types/firebase_emulator_test_app_options.type';
+import { FirebaseError } from 'firebase/app';
+import { StorageError } from 'firebase/storage';
+import { AuthError } from 'firebase/auth';
 
 // private static _app?: GPFirebaseEmulatorTestApp;
 
@@ -31,9 +34,9 @@ import { GPFirebaseEmulatorTestAppOption } from './types/firebase_emulator_test_
  * ```
  */
 export async function initTestApp(options: GPFirebaseEmulatorTestAppOption): Promise<GPFirebaseEmulatorTestApp> {
-  const firebaseTestApp = new GPFirebaseEmulatorTestApp(options);
-  await firebaseTestApp.init();
-  return firebaseTestApp;
+    const firebaseTestApp = new GPFirebaseEmulatorTestApp(options);
+    await firebaseTestApp.init();
+    return firebaseTestApp;
 }
 
 /**
@@ -50,9 +53,9 @@ export async function initTestApp(options: GPFirebaseEmulatorTestAppOption): Pro
  * ```
  */
 export async function initAdminTestApp(options: GPFirebaseEmulatorTestAppOption): Promise<GPFirebaseEmulatorAdminTestApp> {
-  const firebaseAdminTestAdminApp = new GPFirebaseEmulatorAdminTestApp(options);
-  await firebaseAdminTestAdminApp.init();
-  return firebaseAdminTestAdminApp;
+    const firebaseAdminTestAdminApp = new GPFirebaseEmulatorAdminTestApp(options);
+    await firebaseAdminTestAdminApp.init();
+    return firebaseAdminTestAdminApp;
 }
 
 /**
@@ -73,7 +76,7 @@ export async function initAdminTestApp(options: GPFirebaseEmulatorTestAppOption)
  * ```
  */
 export async function assertSucceeds<T>(pr: Promise<T>): Promise<T> {
-  return pr;
+    return pr;
 }
 
 /**
@@ -97,36 +100,35 @@ export async function assertSucceeds<T>(pr: Promise<T>): Promise<T> {
  * const doc = await assertFails(get(doc(firebaseTestApp.firestore, '/users/someone_else_uid'));
  * ```
  */
-export async function assertFails(pr: Promise<any>, expectedErrorCode?: string): Promise<any> {
-  return pr.then(
-    () => {
-      return Promise.reject(
-        new Error('Expected request to fail, but it succeeded.')
-      );
-    },
-    (error: any) => {
-      if (expectedErrorCode) {
-        if (error.code) {
-          const errorCode = error.code.toLowerCase() || '';
-
-          if (errorCode !== expectedErrorCode.toLowerCase()) {
+export async function assertFails<T>(pr: Promise<T>, expectedErrorCode?: string): Promise<T | undefined> {
+    return pr.then(
+        () => {
             return Promise.reject(
-              new Error(
-                `Expected '${expectedErrorCode.toUpperCase()}' but got unexpected error: '${errorCode.toUpperCase()}'`
-              )
+                new Error('Expected request to fail, but it succeeded.')
             );
-          }
-        } else {
-          return Promise.reject(
-            new Error(
-              `Expected '${expectedErrorCode.toUpperCase()}' however the Error returned doesn't have an 'code' field`
-            )
-          );
+        },
+        (error: Error | FirebaseError | StorageError | AuthError) => {
+            if (expectedErrorCode) {
+                if ('code' in error) {
+                    const errorCode = error.code.toLowerCase() || '';
+
+                    if (errorCode !== expectedErrorCode.toLowerCase()) {
+                        return Promise.reject(
+                            new Error(
+                                `Expected '${expectedErrorCode.toUpperCase()}' but got unexpected error: '${errorCode.toUpperCase()}'`
+                            )
+                        );
+                    }
+                } else {
+                    return Promise.reject(
+                        new Error(
+                            `Expected '${expectedErrorCode.toUpperCase()}' however the Error returned doesn't have an 'code' field`
+                        )
+                    );
+                }
+            }
         }
-      }
-      return error;
-    }
-  );
+    );
 }
 
 /**
@@ -148,7 +150,7 @@ export async function assertFails(pr: Promise<any>, expectedErrorCode?: string):
  * ```
  */
 export function sleep(ms: number): Promise<void> {
-  return new Promise((resolve) => {
-    setTimeout(resolve, ms);
-  });
-};
+    return new Promise((resolve) => {
+        setTimeout(resolve, ms);
+    });
+}

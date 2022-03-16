@@ -9,5 +9,5 @@
 import { GPUserAccountController } from './controllers/user_account.controller';
 
 export class GPFirebaseAuthModule {
-  static userAccountController: GPUserAccountController = new GPUserAccountController();
+    static userAccountController: GPUserAccountController = new GPUserAccountController();
 }

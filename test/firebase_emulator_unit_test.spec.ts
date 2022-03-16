@@ -37,10 +37,12 @@ describe('FirebaseEmulatorUnitTest', async () => {
 
       const projectId = testParameters.projectId as string | undefined;
       const region = testParameters.region as string | undefined;
+      const storageBucket = testParameters.storageBucket as string | undefined;
       const expectedEmulatorConfigFilePath = testParameters.firebaseEmulatorConfigFilePath as string | undefined;
 
       expect(projectId, 'Missing projectId in test.json').to.not.be.undefined;
       expect(region, 'Missing projectId in test.json').to.not.be.undefined;
+      expect(storageBucket, 'Missing storageBucket in test.json').to.not.be.undefined;
       expect(expectedEmulatorConfigFilePath, 'Missing path to the expected emulator config file in test.json').to.not.be.undefined;
 
       if (expectedEmulatorConfigFilePath && projectId && region) {
@@ -49,7 +51,7 @@ describe('FirebaseEmulatorUnitTest', async () => {
         expect(expectedEmulatorConfig, 'Either the expected emulator configuration file is missing, or no emulator are set').to.not.be.undefined;
 
         if (expectedEmulatorConfig) {
-          firebaseTestApp = await initTestApp({ projectId: projectId, region: region, hubHostname: hubHostname, hubPort: hubPort });
+          firebaseTestApp = await initTestApp({ projectId: projectId, region: region, storageBucket: storageBucket, hubHostname: hubHostname, hubPort: hubPort });
 
           // Authentification emulator
           if (firebaseTestApp.authEmulatorHostConfig && expectedEmulatorConfig.auth) {
@@ -100,9 +102,11 @@ describe('FirebaseEmulatorUnitTest', async () => {
       const hubPort = testParameters.hub?.port as number | undefined;
 
       const projectId = testParameters.projectId as string | undefined;
+      const storageBucket = testParameters.storageBucket as string | undefined;
       const expectedEmulatorConfigFilePath = testParameters.firebaseEmulatorConfigFilePath as string | undefined;
 
       expect(projectId, 'Missing projectId in test.json').to.not.be.undefined;
+      expect(storageBucket, 'Missing storageBucket in test.json').to.not.be.undefined;
       expect(expectedEmulatorConfigFilePath, 'Missing path to the expected emulator config file in test.json').to.not.be.undefined;
 
       if (expectedEmulatorConfigFilePath && projectId) {
@@ -111,7 +115,7 @@ describe('FirebaseEmulatorUnitTest', async () => {
         expect(expectedEmulatorConfig, 'Either the expected emulator configuration file is missing, or no emulator are set').to.not.be.undefined;
 
         if (expectedEmulatorConfig) {
-          firebaseTestAdminApp = await initAdminTestApp({ projectId: projectId, hubHostname: hubHostname, hubPort: hubPort });
+          firebaseTestAdminApp = await initAdminTestApp({ projectId: projectId, storageBucket: storageBucket, hubHostname: hubHostname, hubPort: hubPort });
 
           // Authentification emulator
           if (firebaseTestAdminApp.authEmulatorHostConfig && expectedEmulatorConfig.auth) {
@@ -152,9 +156,9 @@ describe('Tests admin actions', async () => {
     it('Create a user', async () => {
       const auth = firebaseTestAdminApp!.auth;
       assertSucceeds(auth.createUser({ email: 'test_1@example.com', password: 'Test+1234', uid: 'test_1' }));
-      await sleep(1000);
     });
     it('Check user document has been created', async () => {
+      await sleep(250);
       const db = firebaseTestAdminApp!.firestore;
       const userDoc = await assertSucceeds(db.collection('/users').doc('test_1').get());
       expect(userDoc.exists, 'Missing document \'/users/test_1\'').to.be.true;
@@ -167,8 +171,9 @@ describe('Tests admin actions', async () => {
         expect(userData.email, 'Document \'/users/test_1\' / Field \'email\' is not a string').to.be.a('string');
         expect(userData.email, 'Document \'/users/test_1\' / Field \'email\' value mismatched').to.equal('test_1@example.com');
       }
-    });
+    }).retries(20);
     it('Check user status document has been created', async () => {
+      await sleep(250);
       const db = firebaseTestAdminApp!.firestore;
       const userDoc = await assertSucceeds(db.collection('/users/test_1/status').doc('test_1').get());
       expect(userDoc.exists, 'Missing document \'/users/test_1/status/test_1\'').to.be.true;
@@ -181,17 +186,23 @@ describe('Tests admin actions', async () => {
         expect(userData.isProfileComplete, 'Document \'/users/test_1/status/test_1\' / Field \'isProfileComplete\' is not a string').to.be.a('boolean');
         expect(userData.isProfileComplete, 'Document \'/users/test_1/status/test_1\' / Field \'isProfileComplete\' value mismatched').to.false;
       }
-    });
+    }).retries(20);
     it('Delete user', async () => {
       const auth = firebaseTestAdminApp!.auth;
       assertSucceeds(auth.deleteUser('test_1'));
-      await sleep(1000);
     });
     it('Check user document has been deleted', async () => {
+      await sleep(250);
       const db = firebaseTestAdminApp!.firestore;
       const userDoc = await assertSucceeds(db.collection('/users').doc('test_1').get());
       expect(userDoc.exists, 'Document \'/users/test_1\' exists though it shouldn\'t').to.be.false;
-    });
+    }).retries(20);
+    it('Check user document has been deleted', async () => {
+      await sleep(250);
+      const db = firebaseTestAdminApp!.firestore;
+      const userDoc = await assertSucceeds(db.collection('/users/test_1/status').doc('test_1').get());
+      expect(userDoc.exists, 'Document \'/users/test_1/status/test_1\' exists though it shouldn\'t').to.be.false;
+    }).retries(20);
   });
   describe('Perform cleanup', async () => {
     it('Fill up DB with documents', async () => {
@@ -214,18 +225,40 @@ describe('Tests admin actions', async () => {
       }
       await sleep(5000);
     });
+    it('Fill the storage with document', async () => {
+      const bucket = firebaseTestAdminApp!.storage.bucket();
+      for (let i = 1; i <= 10; i++) {
+        for (let j = 1; j <= 10; j++) {
+          const stream = await bucket.file(`folder_${i}/test_${j}.txt`).createWriteStream();
+          stream.write('Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.', async (error) => { throw error; });
+          stream.end();
+        }
+      }
+    });
     it('Delete all users', async () => {
       const auth = firebaseTestAdminApp!.auth;
-      await assertSucceeds(firebaseTestAdminApp!.cleanAllUsers());
+      await assertSucceeds(firebaseTestAdminApp!.clearAllAuthData());
+      await sleep(1000);
       const userList = (await assertSucceeds(auth.listUsers())).users;
       expect(userList.length, `There are still ${userList.length} user(s)`).to.equal(0);
-      await sleep(5000);
     });
     it('Delete all data', async () => {
       const db = firebaseTestAdminApp!.firestore;
-      await assertSucceeds(firebaseTestAdminApp!.cleanAllData());
+      await assertSucceeds(firebaseTestAdminApp!.clearAllFirestoreData());
+      await sleep(1000);
       const collectionList = await db.listCollections();
       await expect(collectionList.length, `There are still ${collectionList.length} collection(s)`).to.equal(0);
+    });
+    it('Delete all files', async () => {
+      const bucket = firebaseTestAdminApp!.storage.bucket();
+      await assertSucceeds(firebaseTestAdminApp!.deleteAllFiles());
+      await sleep(1000);
+      for (let i = 1; i <= 10; i++) {
+        for (let j = 1; j <= 10; j++) {
+          const fileExists = await bucket.file(`folder_${i}/test_${j}`).exists();
+          expect(fileExists[0], `File test_${i}.txt still exists`).to.be.false;
+        }
+      }
     });
   });
 });
@@ -233,13 +266,11 @@ describe('Tests regular actions', async () => {
   describe('User creation', async () => {
     it('Create user', async () => {
       const auth = firebaseTestApp!.auth;
-
       await assertSucceeds(firebaseAuth.createUserWithEmailAndPassword(auth, 'test_1@example.com', 'Test+1234'));
       await assertSucceeds(firebaseAuth.signOut(auth));
-
-      await sleep(1000);
     });
     it('Check user document has been created', async () => {
+      await sleep(250);
       await firebaseTestApp!.runAuthenticated('test_1@example.com', 'Test+1234', async (userCredential) => {
         const db = firebaseTestApp!.firestore;
         const userDoc = await assertSucceeds(firebaseFirestore.getDoc(firebaseFirestore.doc(db, `/users/${userCredential.user.uid}`)));
@@ -254,8 +285,9 @@ describe('Tests regular actions', async () => {
           expect(userData.email, `Document '/users/${userCredential.user.uid}' / Field 'email' value mismatched`).to.equal(userCredential.user.email);
         }
       });
-    });
+    }).retries(20);
     it('Check user status document has been created', async () => {
+      await sleep(250);
       await firebaseTestApp!.runAuthenticated('test_1@example.com', 'Test+1234', async (userCredential) => {
         const db = firebaseTestApp!.firestore;
         const userDoc = await assertSucceeds(firebaseFirestore.getDoc(firebaseFirestore.doc(db, `/users/${userCredential.user.uid}/status/${userCredential.user.uid}`)));
@@ -270,7 +302,7 @@ describe('Tests regular actions', async () => {
           expect(userData.isProfileComplete, `Document '/users/${userCredential.user.uid}/status/${userCredential.user.uid}' / Field 'isProfileComplete' value mismatched`).to.be.false;
         }
       });
-    });
+    }).retries(20);
     it('Call the add function', async () => {
       await firebaseTestApp!.runAuthenticated('test_1@example.com', 'Test+1234', async () => {
         const functions = firebaseTestApp!.functions;
@@ -282,12 +314,9 @@ describe('Tests regular actions', async () => {
     });
     it('Create anoter user', async () => {
       const auth = firebaseTestApp!.auth;
-
       await assertSucceeds(firebaseAuth.createUserWithEmailAndPassword(auth, 'test_2@example.com', 'Test+1234'));
       await assertSucceeds(firebaseAuth.signOut(auth));
-
-      await sleep(1000);
-    });
+    }).retries(20);
     it('Check a user cannot access some other user\'s documents (with permission-denied code expected)', async () => {
       await firebaseTestApp!.runAuthenticated('test_2@example.com', 'Test+1234', async () => {
         const db = firebaseTestApp!.firestore;
@@ -301,20 +330,23 @@ describe('Tests regular actions', async () => {
       await firebaseTestApp!.runAuthenticated('test_1@example.com', 'Test+1234', async (userCredential) => {
         assertSucceeds(userCredential.user.delete());
       });
-
-      await sleep(1000);
     });
     it('Check user document has been deleted', async () => {
+      await sleep(250);
       const db = firebaseTestAdminApp!.firestore;
       const docs = await assertSucceeds(db.collection('/users').where('email', '==', 'test_1@example.com').get());
       expect(docs.docs.length, 'More than one document found in /users with email \'test_1@example.com\'').to.equal(0);
-    });
+    }).retries(20);
+    it('Check user document has been deleted', async () => {
+      await sleep(250);
+      const db = firebaseTestAdminApp!.firestore;
+      const docs = await assertSucceeds(db.collection('/users').where('email', '==', 'test_1@example.com').get());
+      expect(docs.docs.length, 'More than one document found in /users with email \'test_1@example.com\'').to.equal(0);
+    }).retries(20);
     it('Delete another user', async () => {
       await firebaseTestApp!.runAuthenticated('test_2@example.com', 'Test+1234', async (userCredential) => {
         assertSucceeds(userCredential.user.delete());
       });
-
-      await sleep(1000);
     });
   });
 });

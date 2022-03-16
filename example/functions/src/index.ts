@@ -17,24 +17,24 @@ admin.initializeApp();
 
 // The addition function
 export const add = functions
-  .region('europe-west1')
-  .https
-  .onCall((data, context) => GPFirebaseFunctionsModule.additionController.add(data, context));
+    .region('europe-west1')
+    .https
+    .onCall((data, context) => GPFirebaseFunctionsModule.additionController.add(data, context));
 
 // On user creation
 export const onUserAccountCreated = functions
-  .region('europe-west1')
-  .auth.user()
-  .onCreate((user) => GPFirebaseAuthModule.userAccountController.onUserAccountCreated(user));
+    .region('europe-west1')
+    .auth.user()
+    .onCreate((user) => GPFirebaseAuthModule.userAccountController.onUserAccountCreated(user));
 
 // On user deletion
 export const onUserAccountDeleted = functions
-  .region('europe-west1')
-  .auth.user()
-  .onDelete((user) => GPFirebaseAuthModule.userAccountController.onUserAccountDeleted(user));
+    .region('europe-west1')
+    .auth.user()
+    .onDelete((user) => GPFirebaseAuthModule.userAccountController.onUserAccountDeleted(user));
 
 // On user updated
 export const onUserUpdated = functions
-  .region('europe-west1')
-  .firestore.document('/users/{userId}')
-  .onUpdate((snapshot, context) => GPFirebaseFirestoreModule.userController.onUpdate(snapshot, context));
+    .region('europe-west1')
+    .firestore.document('/users/{userId}')
+    .onUpdate((snapshot, context) => GPFirebaseFirestoreModule.userController.onUpdate(snapshot, context));
