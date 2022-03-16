@@ -9,5 +9,5 @@
 import { GPUserController } from './controllers/user.controller';
 
 export class GPFirebaseFirestoreModule {
-  static userController = new GPUserController();
+    static userController = new GPUserController();
 }
