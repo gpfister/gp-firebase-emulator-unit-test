@@ -13,30 +13,13 @@
     "rules": "storage/storage.rules"
   },
   "emulators": {
-    "auth": {
-      "host": "oskey-dev.local.gpf.pw",
-      "port": 19001
-    },
-    "functions": {
-      "host": "oskey-dev.local.gpf.pw",
-      "port": 19003
-    },
-    "firestore": {
-      "host": "oskey-dev.local.gpf.pw",
-      "port": 19002
-    },
-    "storage": {
-      "host": "oskey-dev.local.gpf.pw",
-      "port": 19004
-    },
+    "auth": {},
+    "functions": {},
+    "firestore": {},
+    "storage": {},
     "ui": {
-      "enabled": true,
-      "host": "oskey-dev.local.gpf.pw",
-      "port": 19000
+      "enabled": true
     },
-    "hub": {
-      "host": "oskey-dev.local.gpf.pw",
-      "port": 19099
-    }
+    "hub": {}
   }
 }
