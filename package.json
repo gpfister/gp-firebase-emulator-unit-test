@@ -1,7 +1,7 @@
 {
   "name": "gp-firebase-emulator-unit-test",
   "description": "A unit test lib to use with the firebase emulator",
-  "version": "0.1.5",
+  "version": "0.2.0",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "scripts": {
