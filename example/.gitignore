@@ -86,6 +86,4 @@ node_modules/
 .env
 
 # Firebase
-
-.firebaserc
 *.log
