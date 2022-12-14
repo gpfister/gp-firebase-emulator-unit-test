@@ -17,3 +17,6 @@ doc/
 
 # Github
 .github/
+
+# VSCode devcontainer
+.devcontainer/
