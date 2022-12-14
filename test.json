@@ -1,0 +1,10 @@
+{
+  "projectId": "gp-example",
+  "region": "europe-west1",
+  "storageBucket": "default-bucket",
+  "firebaseEmulatorConfigFilePath": "./example/firebase.json",
+  "hub": {
+    "hostname": "127.0.0.1",
+    "port": 17006
+  }
+}

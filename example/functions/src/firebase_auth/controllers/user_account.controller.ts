@@ -6,16 +6,18 @@
  * @copyright (C) 2021, Greg PFISTER
  */
 
-import * as admin from 'firebase-admin';
+import { firestore } from 'firebase-admin';
+import { UserRecord } from 'firebase-admin/auth';
+import { Timestamp } from 'firebase-admin/firestore';
 
 import { GPUserDocument } from '../../firebase_firestore/models/user_document.model';
 import { GPUserStatusDocument } from '../../firebase_firestore/models/user_status_document.model';
 // import { OSKUserDocument } from "../models/user_document.model";
 
 export class GPUserAccountController {
-    async onUserAccountCreated(userAccount: admin.auth.UserRecord) {
-        const db = admin.firestore();
-        const ts = admin.firestore.Timestamp.now();
+    async onUserAccountCreated(userAccount: UserRecord) {
+        const db = firestore();
+        const ts = Timestamp.now();
 
         // Send welcome email
         // TODO: Send welcome email
@@ -27,7 +29,7 @@ export class GPUserAccountController {
             email: userAccount.email ?? '', // There should always be an email
             publicProfile: { displayName: displayName },
             privateProfile: { fullName: displayName },
-            creationDate: ts
+            creationDate: ts,
         };
 
         if (userAccount.displayName) {
@@ -41,7 +43,7 @@ export class GPUserAccountController {
 
         const userStatus: GPUserStatusDocument = {
             isProfileComplete: false,
-            creationDate: ts
+            creationDate: ts,
         };
 
         await db.collection('/users/').doc(userAccount.uid).create(user);
@@ -49,8 +51,8 @@ export class GPUserAccountController {
         await db.collection(`/users/${userAccount.uid}/status`).doc(userAccount.uid).create(userStatus);
     }
 
-    async onUserAccountDeleted(user: admin.auth.UserRecord) {
-        const db = admin.firestore();
+    async onUserAccountDeleted(user: UserRecord) {
+        const db = firestore();
 
         // Remove all user record
         const userAccount = await db.doc(`/users/${user.uid}`).get();

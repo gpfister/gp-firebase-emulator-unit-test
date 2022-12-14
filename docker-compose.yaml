@@ -1,0 +1,47 @@
+#
+# @author Greg PFISTER <greg@oskey.io>
+# @copyright (c) 2022 OSkey.io. All rights reserved.
+# @license SEE LICENSE IN LICENSE.md
+#
+
+version: '3.9'
+
+# Services
+services:
+  firebase:
+    container_name: firebase-oskey-dev
+    build:
+      dockerfile: Dockerfile
+      context: .
+    ports:
+      - '1883:1883'
+      - '18000:18000'
+      - '18001:18001'
+      - '18002:18002'
+      - '18003:18003'
+      - '18005:18005'
+      - '18006:18006'
+    volumes:
+      - ..:/workspace
+      - firebase-devenv-home:/home
+    networks:
+      - oskey-dev
+  #   depends_on:
+  #     - mosquitto
+  # mosquitto:
+  #   image: eclipse-mosquitto:2
+  #   container_name: mosquitto-oskey-dev
+  #   volumes:
+  #     - ./mosquitto/config:/mosquitto/config
+  #     - oskey-dev-mosquitto-data:/mosquitto/data
+  #     - oskey-dev-mosquitto-log:/mosquitto/log
+  #   networks:
+  #     - oskey-dev
+
+volumes:
+  firebase-devenv-home:
+    name: firebase-devenv-home-oskey-dev
+
+networks:
+  oskey-dev:
+    name: oskey-dev

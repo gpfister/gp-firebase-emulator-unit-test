@@ -1,5 +1,5 @@
 [![License](https://img.shields.io/badge/license-MIT-blue)](./LICENSE)
-[![node](https://img.shields.io/badge/node-16.x-233056)](https://nodejs.org)
+[![node](https://img.shields.io/badge/node-18.x-233056)](https://nodejs.org)
 [![npm](https://img.shields.io/badge/npm-ready-cb3837)](https://www.npmjs.com/package/gp-firebase-emulator-unit-test)
 
 # gp-firebase-emulator-unit-test
@@ -26,8 +26,8 @@ though it also works as running it as part of the emulator.
 
 ## Requirements
 
-- Node LTS 16.x (not tested on 10.x, 12.x and 14.x)
-- firebase-tools v10.x
+- Node LTS 18.x (not tested on 10.x, 12.x, 14.x and 16.x)
+- firebase-tools 11.x
 
 ## Installation
 
@@ -41,13 +41,13 @@ npm install --save-dev gp-firebase-emulator-unit-test
 To add to your project using Javascript, you can can do something like:
 
 ```javascript
-const gpFirebaseEmulUT = require("gp-firebase-emulator-unit-test");
+const gpFirebaseEmulUT = require('gp-firebase-emulator-unit-test');
 ```
 
 If you are using Typescript, you can get the whole package with something like:
 
 ```typescript
-import * as gpFirebaseEmulUT from "gp-firebase-emulator-unit-test";
+import * as gpFirebaseEmulUT from 'gp-firebase-emulator-unit-test';
 ```
 
 ## Example (Typescript)

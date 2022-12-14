@@ -2,7 +2,7 @@
 
 ## Requirements
 
-- Any Node LTS, starting from Node 12.``
+- Any Node LTS, starting from Node 14.x to 18.x``
 - A Google account and a Firebase test app (if you are testing the function call, you would need a Blaze subscription)
 
 ## Build

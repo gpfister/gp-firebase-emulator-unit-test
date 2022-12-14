@@ -6,17 +6,17 @@
  * @copyright (C) 2021, Greg PFISTER
  */
 
-import * as admin from 'firebase-admin';
+import { firestore, storage } from 'firebase-admin';
+import { DocumentSnapshot } from 'firebase-admin/firestore';
 
-import { DocumentSnapshot } from 'firebase-functions/lib/providers/firestore';
 import { Change, EventContext } from 'firebase-functions';
 import { GPUserDocument } from '../models/user_document.model';
 import { GPUserStatusDocument } from '../models/user_status_document.model';
 
 export class GPUserController {
     async onUpdate(snapshot: Change<DocumentSnapshot>, context: EventContext) {
-        const db = admin.firestore();
-        const bucket = admin.storage().bucket();
+        const db = firestore();
+        const bucket = storage().bucket();
 
         const { userId } = context.params;
 
@@ -33,13 +33,9 @@ export class GPUserController {
             // Check the profile image has been updated
             if (originalProfileImage) {
                 const originalFilename = originalProfileImage.filename;
-                const updatedFielname = updatedProfileImage
-                    ? updatedProfileImage.filename
-                    : originalFilename;
+                const updatedFielname = updatedProfileImage ? updatedProfileImage.filename : originalFilename;
                 if (originalFilename !== updatedFielname) {
-                    await bucket
-                        .file(`users/${userId}/profileImages/${originalFilename}`)
-                        .delete();
+                    await bucket.file(`users/${userId}/profileImages/${originalFilename}`).delete();
                 }
             }
 
@@ -50,10 +46,7 @@ export class GPUserController {
                     const fullName = updatedUser.privateProfile?.fullName;
                     const dateOfBirth = updatedUser.privateProfile?.dateOfBirth;
                     if (displayName && fullName && dateOfBirth) {
-                        await db
-                            .collection(`/users/${userId}/status`)
-                            .doc(userId)
-                            .set({ isProfileComplete: true }, { merge: true });
+                        await db.collection(`/users/${userId}/status`).doc(userId).set({ isProfileComplete: true }, { merge: true });
                     }
                 }
             }

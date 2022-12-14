@@ -2,11 +2,17 @@ gp-firebase-emulator-unit-test
 
 # gp-firebase-emulator-unit-test
 
-**`author`** Greg PFISTER
+**`Author`**
 
-**`license`** MIT
+Greg PFISTER
 
-**`copyright`** (C) 2021, Greg PFISTER
+**`License`**
+
+MIT
+
+**`Copyright`**
+
+(C) 2021, Greg PFISTER
 
 ## Table of contents
 
@@ -15,7 +21,7 @@ gp-firebase-emulator-unit-test
 - [GPFirebaseEmulatorAdminTestApp](classes/GPFirebaseEmulatorAdminTestApp.md)
 - [GPFirebaseEmulatorTestApp](classes/GPFirebaseEmulatorTestApp.md)
 
-### Type aliases
+### Type Aliases
 
 - [GPFirebaseEmulatorHostConfig](README.md#gpfirebaseemulatorhostconfig)
 - [GPFirebaseEmulatorTestAppOption](README.md#gpfirebaseemulatortestappoption)
@@ -28,7 +34,7 @@ gp-firebase-emulator-unit-test
 - [initTestApp](README.md#inittestapp)
 - [sleep](README.md#sleep)
 
-## Type aliases
+## Type Aliases
 
 ### GPFirebaseEmulatorHostConfig
 
@@ -36,7 +42,9 @@ gp-firebase-emulator-unit-test
 
 Simple type to store the emulator host config
 
-**`since`** 0.1.0
+**`Since`**
+
+0.1.0
 
 #### Type declaration
 
@@ -47,7 +55,7 @@ Simple type to store the emulator host config
 
 #### Defined in
 
-[types/firebase_emulator_host_config.type.ts:19](https://github.com/gpfister/gp-firebase-emulator-unit-test/blob/921c823/src/types/firebase_emulator_host_config.type.ts#L19)
+[types/firebase_emulator_host_config.type.ts:19](https://github.com/gpfister/gp-firebase-emulator-unit-test/blob/da0ac90/src/types/firebase_emulator_host_config.type.ts#L19)
 
 ___
 
@@ -57,7 +65,9 @@ ___
 
 The test app option to initialise the unit test app
 
-**`since`** 0.1.0
+**`Since`**
+
+0.1.0
 
 #### Type declaration
 
@@ -71,13 +81,13 @@ The test app option to initialise the unit test app
 
 #### Defined in
 
-[types/firebase_emulator_test_app_options.type.ts:19](https://github.com/gpfister/gp-firebase-emulator-unit-test/blob/921c823/src/types/firebase_emulator_test_app_options.type.ts#L19)
+[types/firebase_emulator_test_app_options.type.ts:19](https://github.com/gpfister/gp-firebase-emulator-unit-test/blob/da0ac90/src/types/firebase_emulator_test_app_options.type.ts#L19)
 
 ## Functions
 
 ### assertFails
 
-▸ **assertFails**(`pr`, `expectedErrorCode?`): `Promise`<`any`\>
+▸ **assertFails**<`T`\>(`pr`, `expectedErrorCode?`): `Promise`<`T` \| `undefined`\>
 
 Assert the promise to fail.
 
@@ -85,30 +95,37 @@ Useful to assert a certain request to be denied by Security Rules. See
 example below. This function can be used to only consider a specific error
 code as a valid result.
 
-**`example`**
+**`Example`**
+
 ```javascript
 const firebaseTestApp = initTestApp({projectId: 'some-project-id'})
 const userCredential = await assertSucceed(signInWithEmailAndPassword(firebaseTestApp.auth, 'someone@email.com', 'some_password'))
 const doc = await assertFails(get(doc(firebaseTestApp.firestore, '/users/someone_else_uid'));
 ```
 
+#### Type parameters
+
+| Name |
+| :------ |
+| `T` |
+
 #### Parameters
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `pr` | `Promise`<`any`\> | The promise to be asserted |
-| `expectedErrorCode?` | `string` | Specifiy an error code expected. If not specified,                          it assumes that any error code statisfies the                          expected faillure. |
+| `pr` | `Promise`<`T`\> | The promise to be asserted |
+| `expectedErrorCode?` | `string` | Specifiy an error code expected. If not specified, it assumes that any error code statisfies the expected faillure. |
 
 #### Returns
 
-`Promise`<`any`\>
+`Promise`<`T` \| `undefined`\>
 
-A promise that is fulfilled if pr is rejected with a specific error
+A promise that is fulfilled if pr is rejected with a specific error 
         code if requested, otherwise with any other error code
 
 #### Defined in
 
-[firebase_emulator_unit_test.ts:100](https://github.com/gpfister/gp-firebase-emulator-unit-test/blob/921c823/src/firebase_emulator_unit_test.ts#L100)
+[firebase_emulator_unit_test.ts:103](https://github.com/gpfister/gp-firebase-emulator-unit-test/blob/da0ac90/src/firebase_emulator_unit_test.ts#L103)
 
 ___
 
@@ -122,7 +139,8 @@ This is a no-op function returning the passed promise as-is, but can be used
 for documentational purposes in test code to emphasize that a certain request
 should succeed (e.g. allowed by rules).
 
-**`example`**
+**`Example`**
+
 ```javascript
 const firebaseTestApp = initTestApp({projectId: 'some-project-id'})
 const doc = await assertSucceeds(get(doc(firebaseTestApp.firestore, '/some_collection/some_doc'));
@@ -148,7 +166,7 @@ the promise itself, not changed
 
 #### Defined in
 
-[firebase_emulator_unit_test.ts:75](https://github.com/gpfister/gp-firebase-emulator-unit-test/blob/921c823/src/firebase_emulator_unit_test.ts#L75)
+[firebase_emulator_unit_test.ts:78](https://github.com/gpfister/gp-firebase-emulator-unit-test/blob/da0ac90/src/firebase_emulator_unit_test.ts#L78)
 
 ___
 
@@ -159,7 +177,8 @@ ___
 Initialise an instance for the Firebase Emulator admin test app, which allow to
 test as regular application (using the firebase-admin package)
 
-**`example`**
+**`Example`**
+
 ```javascript
 const firebaseTestApp = await GPFirebaseEmulatorUnitTest.initAdminTestApp({projectId: "some-project-id"});
 ```
@@ -178,7 +197,7 @@ A promise which would resolve as a Firebase Emulator admin test app
 
 #### Defined in
 
-[firebase_emulator_unit_test.ts:52](https://github.com/gpfister/gp-firebase-emulator-unit-test/blob/921c823/src/firebase_emulator_unit_test.ts#L52)
+[firebase_emulator_unit_test.ts:55](https://github.com/gpfister/gp-firebase-emulator-unit-test/blob/da0ac90/src/firebase_emulator_unit_test.ts#L55)
 
 ___
 
@@ -189,7 +208,8 @@ ___
 Initialise an instance for the Firebase Emulator test app, which allow to
 test as regular application (using the firebase-js-sdk package)
 
-**`example`**
+**`Example`**
+
 ```javascript
 const firebaseTestApp = await GPFirebaseEmulatorUnitTest.initTestApp({projectId: "some-project-id"});
 ```
@@ -208,7 +228,7 @@ A promise which would resolve as a Firebase Emulator test app
 
 #### Defined in
 
-[firebase_emulator_unit_test.ts:33](https://github.com/gpfister/gp-firebase-emulator-unit-test/blob/921c823/src/firebase_emulator_unit_test.ts#L33)
+[firebase_emulator_unit_test.ts:36](https://github.com/gpfister/gp-firebase-emulator-unit-test/blob/da0ac90/src/firebase_emulator_unit_test.ts#L36)
 
 ___
 
@@ -224,7 +244,8 @@ Notes:
 `--timeout`, also expressed in milliseconds
 - depending on the hardware, the sleep time may have to be increased.
 
-**`example`**
+**`Example`**
+
 ```javascript
 await sleep(10000); // Sleep for 10 seconds
 ```
@@ -241,4 +262,4 @@ await sleep(10000); // Sleep for 10 seconds
 
 #### Defined in
 
-[firebase_emulator_unit_test.ts:150](https://github.com/gpfister/gp-firebase-emulator-unit-test/blob/921c823/src/firebase_emulator_unit_test.ts#L150)
+[firebase_emulator_unit_test.ts:152](https://github.com/gpfister/gp-firebase-emulator-unit-test/blob/da0ac90/src/firebase_emulator_unit_test.ts#L152)

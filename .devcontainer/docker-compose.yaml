@@ -1,0 +1,46 @@
+#
+# @author Greg PFISTER <greg@oskey.io>
+# @copyright (c) 2022 OSkey.io. All rights reserved.
+# @license SEE LICENSE IN LICENSE.md
+#
+
+version: '3.9'
+
+# Services
+services:
+  firebase:
+    container_name: gp-firebase-emulator-unit-test
+    build:
+      dockerfile: Dockerfile
+      context: .
+    ports:
+      - '17000:17000'
+      - '17001:17001'
+      - '17002:17002'
+      - '17003:17003'
+      - '17005:17005'
+      - '17006:17006'
+    volumes:
+      - ..:/workspace
+      - gp-firebase-emulator-unit-test-home:/home
+    networks:
+      - gp-firebase-emulator-unit-test
+  #   depends_on:
+  #     - mosquitto
+  # mosquitto:
+  #   image: eclipse-mosquitto:2
+  #   container_name: mosquitto-oskey-dev
+  #   volumes:
+  #     - ./mosquitto/config:/mosquitto/config
+  #     - oskey-dev-mosquitto-data:/mosquitto/data
+  #     - oskey-dev-mosquitto-log:/mosquitto/log
+  #   networks:
+  #     - oskey-dev
+
+volumes:
+  gp-firebase-emulator-unit-test-home:
+    name: gp-firebase-emulator-unit-test-home
+
+networks:
+  gp-firebase-emulator-unit-test:
+    name: gp-firebase-emulator-unit-test

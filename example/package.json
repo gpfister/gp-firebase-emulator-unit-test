@@ -1,10 +1,12 @@
 {
   "name": "gp-example",
-  "version": "0.2.0",
-  "description": "Example app for testing firebase-emulator-unit-test",
+  "version": "1.0.0",
+  "description": "Example app for testing gp-firebase-emulator-unit-test",
   "main": "dist/index.js",
   "scripts": {
-    "emul": "firebase emulators:start"
+    "emul": "firebase emulators:start",
+    "test": "firebase emulators:exec '(cd ..; npm test)'",
+    "test:ci": "firebase emulators:exec '(cd ..; npm test)' --json"
   },
   "repository": {
     "type": "git",

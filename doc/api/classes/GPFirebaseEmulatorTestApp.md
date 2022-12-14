@@ -42,7 +42,7 @@ Class constructor
 
 #### Defined in
 
-[firebase_emulator_test_app.ts:45](https://github.com/gpfister/gp-firebase-emulator-unit-test/blob/921c823/src/firebase_emulator_test_app.ts#L45)
+[firebase_emulator_test_app.ts:45](https://github.com/gpfister/gp-firebase-emulator-unit-test/blob/da0ac90/src/firebase_emulator_test_app.ts#L45)
 
 ## Accessors
 
@@ -52,7 +52,9 @@ Class constructor
 
 Return the Auth client API module of the test app, if setup
 
-**`throws`** An error if the Auth emulator is not ready
+**`Throws`**
+
+An error if the Auth emulator is not ready
 
 #### Returns
 
@@ -60,7 +62,7 @@ Return the Auth client API module of the test app, if setup
 
 #### Defined in
 
-[firebase_emulator_test_app.ts:107](https://github.com/gpfister/gp-firebase-emulator-unit-test/blob/921c823/src/firebase_emulator_test_app.ts#L107)
+[firebase_emulator_test_app.ts:107](https://github.com/gpfister/gp-firebase-emulator-unit-test/blob/da0ac90/src/firebase_emulator_test_app.ts#L107)
 
 ___
 
@@ -76,7 +78,7 @@ Return the Auth emulator host config (hostname and port)
 
 #### Defined in
 
-[firebase_emulator_test_app.ts:175](https://github.com/gpfister/gp-firebase-emulator-unit-test/blob/921c823/src/firebase_emulator_test_app.ts#L175)
+[firebase_emulator_test_app.ts:175](https://github.com/gpfister/gp-firebase-emulator-unit-test/blob/da0ac90/src/firebase_emulator_test_app.ts#L175)
 
 ___
 
@@ -86,7 +88,9 @@ ___
 
 Return the Cloud Firestore client API module of the test app, if setup
 
-**`throws`** An error if the Cloud Firestore emulator is not ready
+**`Throws`**
+
+An error if the Cloud Firestore emulator is not ready
 
 #### Returns
 
@@ -94,7 +98,7 @@ Return the Cloud Firestore client API module of the test app, if setup
 
 #### Defined in
 
-[firebase_emulator_test_app.ts:116](https://github.com/gpfister/gp-firebase-emulator-unit-test/blob/921c823/src/firebase_emulator_test_app.ts#L116)
+[firebase_emulator_test_app.ts:116](https://github.com/gpfister/gp-firebase-emulator-unit-test/blob/da0ac90/src/firebase_emulator_test_app.ts#L116)
 
 ___
 
@@ -110,7 +114,7 @@ Return the Cloud Firestore emulator host config (hostname and port)
 
 #### Defined in
 
-[firebase_emulator_test_app.ts:180](https://github.com/gpfister/gp-firebase-emulator-unit-test/blob/921c823/src/firebase_emulator_test_app.ts#L180)
+[firebase_emulator_test_app.ts:180](https://github.com/gpfister/gp-firebase-emulator-unit-test/blob/da0ac90/src/firebase_emulator_test_app.ts#L180)
 
 ___
 
@@ -120,7 +124,9 @@ ___
 
 Return the Cloud Functions client API module of the test app, if setup
 
-**`throws`** An error if the Cloud Functions emulator is not ready
+**`Throws`**
+
+An error if the Cloud Functions emulator is not ready
 
 #### Returns
 
@@ -128,7 +134,7 @@ Return the Cloud Functions client API module of the test app, if setup
 
 #### Defined in
 
-[firebase_emulator_test_app.ts:125](https://github.com/gpfister/gp-firebase-emulator-unit-test/blob/921c823/src/firebase_emulator_test_app.ts#L125)
+[firebase_emulator_test_app.ts:125](https://github.com/gpfister/gp-firebase-emulator-unit-test/blob/da0ac90/src/firebase_emulator_test_app.ts#L125)
 
 ___
 
@@ -144,7 +150,7 @@ Return the Cloud Functions emulator host config (hostname and port)
 
 #### Defined in
 
-[firebase_emulator_test_app.ts:185](https://github.com/gpfister/gp-firebase-emulator-unit-test/blob/921c823/src/firebase_emulator_test_app.ts#L185)
+[firebase_emulator_test_app.ts:185](https://github.com/gpfister/gp-firebase-emulator-unit-test/blob/da0ac90/src/firebase_emulator_test_app.ts#L185)
 
 ___
 
@@ -154,7 +160,9 @@ ___
 
 Return the Cloud Storage client API module of the test app, if setup
 
-**`throws`** An error if the Cloud Storage emulator is not ready
+**`Throws`**
+
+An error if the Cloud Storage emulator is not ready
 
 #### Returns
 
@@ -162,7 +170,7 @@ Return the Cloud Storage client API module of the test app, if setup
 
 #### Defined in
 
-[firebase_emulator_test_app.ts:134](https://github.com/gpfister/gp-firebase-emulator-unit-test/blob/921c823/src/firebase_emulator_test_app.ts#L134)
+[firebase_emulator_test_app.ts:134](https://github.com/gpfister/gp-firebase-emulator-unit-test/blob/da0ac90/src/firebase_emulator_test_app.ts#L134)
 
 ___
 
@@ -178,7 +186,7 @@ Return the Cloud Storage emulator host config (hostname and port)
 
 #### Defined in
 
-[firebase_emulator_test_app.ts:190](https://github.com/gpfister/gp-firebase-emulator-unit-test/blob/921c823/src/firebase_emulator_test_app.ts#L190)
+[firebase_emulator_test_app.ts:190](https://github.com/gpfister/gp-firebase-emulator-unit-test/blob/da0ac90/src/firebase_emulator_test_app.ts#L190)
 
 ## Methods
 
@@ -188,7 +196,8 @@ Return the Cloud Storage emulator host config (hostname and port)
 
 Init the app
 
-**`example`**
+**`Example`**
+
 ```javascrip
 const app = new GPFirebaseEmulatorTestAppOption({projectId: 'project', region: 'europe-west3', storageBucket: 'default'});
 app.init().then(() => {
@@ -202,7 +211,7 @@ app.init().then(() => {
 
 #### Defined in
 
-[firebase_emulator_test_app.ts:64](https://github.com/gpfister/gp-firebase-emulator-unit-test/blob/921c823/src/firebase_emulator_test_app.ts#L64)
+[firebase_emulator_test_app.ts:64](https://github.com/gpfister/gp-firebase-emulator-unit-test/blob/da0ac90/src/firebase_emulator_test_app.ts#L64)
 
 ___
 
@@ -210,10 +219,11 @@ ___
 
 ▸ **runAuthenticated**(`email`, `password`, `pr`): `Promise`<`void`\>
 
-Run in an authenticated context an async function will have the user
+Run in an authenticated context an async function will have the user 
 credentials of the authenticated user
 
-**`example`**
+**`Example`**
+
 ```javascrip
 const app = new GPFirebaseEmulatorTestAppOption({projectId: 'project', region: 'europe-west3', storageBucket: 'default'});
 app.init().then(async () => {
@@ -227,8 +237,8 @@ app.init().then(async () => {
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `email` | `string` | The email of the user account which will be user to              authenticate |
-| `password` | `string` | The password of the user account which will be user to                 authenticate |
+| `email` | `string` | The email of the user account which will be user to authenticate |
+| `password` | `string` | The password of the user account which will be user to authenticate |
 | `pr` | (`userCredential`: `UserCredential`) => `Promise`<`void`\> | The async function to run in the authenticated context |
 
 #### Returns
@@ -240,4 +250,4 @@ A promise which will trigger the `pr` function once authenticated,
 
 #### Defined in
 
-[firebase_emulator_test_app.ts:160](https://github.com/gpfister/gp-firebase-emulator-unit-test/blob/921c823/src/firebase_emulator_test_app.ts#L160)
+[firebase_emulator_test_app.ts:160](https://github.com/gpfister/gp-firebase-emulator-unit-test/blob/da0ac90/src/firebase_emulator_test_app.ts#L160)
