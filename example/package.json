@@ -5,7 +5,8 @@
   "main": "dist/index.js",
   "scripts": {
     "emul": "firebase emulators:start",
-    "test": "firebase emulators:exec '(cd ..; npm test)'"
+    "test": "firebase emulators:exec '(cd ..; npm test)'",
+    "test:ci": "firebase emulators:exec '(cd ..; npm test)' --json"
   },
   "repository": {
     "type": "git",

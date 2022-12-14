@@ -39,7 +39,7 @@ jobs:
         env:
           FIREBASE_TOKEN: ${{secrets.firebase_token}}
       - run: (cd example/functions; npm ci && npm run lint && npm run build)
-      - run: (cd example; npm test')
+      - run: (cd example; npm run test:ci)
 
   publish-npm:
     needs: build
