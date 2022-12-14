@@ -35,7 +35,7 @@ jobs:
       - run: npm i -g firebase-tools
       - run: npm ci
       - run: npm run build
-      - run: firebase use default --token '$FIREBASE_TOKEN'
+      - run: (cd example; firebase use default --token '$FIREBASE_TOKEN')
         env:
           FIREBASE_TOKEN: ${{secrets.firebase_token}}
       - run: (cd example/functions; npm ci && npm run lint && npm run build)
