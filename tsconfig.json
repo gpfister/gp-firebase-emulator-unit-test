@@ -12,10 +12,6 @@
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true
   },
-  "include": [
-    "./src/**/*.ts"
-  ],
-  "exclude": [
-    "./dist/**/*"
-  ]
+  "include": ["./src/**/*.ts", "test/firebase_emulator_unit_test.spec.ts"],
+  "exclude": ["./dist/**/*"]
 }

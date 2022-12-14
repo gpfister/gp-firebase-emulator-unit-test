@@ -19,7 +19,7 @@ import { expect } from 'chai';
 import { readFile } from 'fs/promises';
 
 import { GPFirebaseEmulatorTestApp, initAdminTestApp, initTestApp, assertFails, assertSucceeds, sleep, GPFirebaseEmulatorAdminTestApp } from '../src';
-import { GPFirebaseEmulatorHostConfig } from '../src/types/';
+import { GPFirebaseEmulatorHostConfig } from '../src/types';
 
 import { GPAdditionRequest } from '../example/functions/src/firebase_functions/models/addtion_request.model';
 import { GPAddtionResponse } from '../example/functions/src/firebase_functions/models/addtion_response.model';
@@ -56,40 +56,36 @@ describe('FirebaseEmulatorUnitTest', async () => {
           // Authentification emulator
           if (firebaseTestApp.authEmulatorHostConfig && expectedEmulatorConfig.auth) {
             const expectedAuthEmulatorHostConfig: GPFirebaseEmulatorHostConfig = {
-              hostname: expectedEmulatorConfig.auth.host || 'localhost',
-              port: expectedEmulatorConfig.auth.port || 9099
+              hostname: expectedEmulatorConfig.auth.host || '127.0.0.1',
+              port: expectedEmulatorConfig.auth.port || 9099,
             };
-            expect(firebaseTestApp.authEmulatorHostConfig.hostname, 'Wrong Auth emulator hostname').to.equal(expectedAuthEmulatorHostConfig.hostname);
             expect(firebaseTestApp.authEmulatorHostConfig.port, 'Wrong Auth emulator port').to.equal(expectedAuthEmulatorHostConfig.port);
           }
 
           // Firestore emulator
           if (firebaseTestApp.firestoreEmulatorHostConfig && expectedEmulatorConfig.firestore) {
             const expectedFirestoreEmulatorHostConfig: GPFirebaseEmulatorHostConfig = {
-              hostname: expectedEmulatorConfig.firestore.host || 'localhost',
-              port: expectedEmulatorConfig.firestore.port || 8080
+              hostname: expectedEmulatorConfig.firestore.host || '127.0.0.1',
+              port: expectedEmulatorConfig.firestore.port || 8080,
             };
-            expect(firebaseTestApp.firestoreEmulatorHostConfig.hostname, 'Wrong Firestore emulator hostname').to.equal(expectedFirestoreEmulatorHostConfig.hostname);
             expect(firebaseTestApp.firestoreEmulatorHostConfig.port, 'Wrong Firestore emulator port').to.equal(expectedFirestoreEmulatorHostConfig.port);
           }
 
           // Functions emulator
           if (firebaseTestApp.functionsEmulatorHostConfig && expectedEmulatorConfig.functions) {
             const expectedFunctionsEmulatorHostConfig: GPFirebaseEmulatorHostConfig = {
-              hostname: expectedEmulatorConfig.functions.host || 'localhost',
-              port: expectedEmulatorConfig.functions.port || 5001
+              hostname: expectedEmulatorConfig.functions.host || '127.0.0.1',
+              port: expectedEmulatorConfig.functions.port || 5001,
             };
-            expect(firebaseTestApp.functionsEmulatorHostConfig.hostname, 'Wrong Functions emulator hostname').to.equal(expectedFunctionsEmulatorHostConfig.hostname);
             expect(firebaseTestApp.functionsEmulatorHostConfig.port, 'Wrong Functions emulator port').to.equal(expectedFunctionsEmulatorHostConfig.port);
           }
 
           // Storage emulator
           if (firebaseTestApp.storageEmulatorHostConfig && expectedEmulatorConfig.storage) {
             const expectedStorageEmulatorHostConfig: GPFirebaseEmulatorHostConfig = {
-              hostname: expectedEmulatorConfig.storage.host || 'localhost',
-              port: expectedEmulatorConfig.storage.port || 9199
+              hostname: expectedEmulatorConfig.storage.host || '127.0.0.1',
+              port: expectedEmulatorConfig.storage.port || 9199,
             };
-            expect(firebaseTestApp.storageEmulatorHostConfig.hostname, 'Wrong Storage emulator hostname').to.equal(expectedStorageEmulatorHostConfig.hostname);
             expect(firebaseTestApp.storageEmulatorHostConfig.port, 'Wrong Storage emulator port').to.equal(expectedStorageEmulatorHostConfig.port);
           }
         }
@@ -120,30 +116,27 @@ describe('FirebaseEmulatorUnitTest', async () => {
           // Authentification emulator
           if (firebaseTestAdminApp.authEmulatorHostConfig && expectedEmulatorConfig.auth) {
             const expectedAuthEmulatorHostConfig: GPFirebaseEmulatorHostConfig = {
-              hostname: expectedEmulatorConfig.auth.host || 'localhost',
-              port: expectedEmulatorConfig.auth.port || 9099
+              hostname: expectedEmulatorConfig.auth.host || '127.0.0.1',
+              port: expectedEmulatorConfig.auth.port || 9099,
             };
-            expect(firebaseTestAdminApp.authEmulatorHostConfig.hostname, 'Wrong Auth emulator hostname').to.equal(expectedAuthEmulatorHostConfig.hostname);
             expect(firebaseTestAdminApp.authEmulatorHostConfig.port, 'Wrong Auth emulator port').to.equal(expectedAuthEmulatorHostConfig.port);
           }
 
           // Firestore emulator
           if (firebaseTestAdminApp.firestoreEmulatorHostConfig && expectedEmulatorConfig.firestore) {
             const expectedFirestoreEmulatorHostConfig: GPFirebaseEmulatorHostConfig = {
-              hostname: expectedEmulatorConfig.firestore.host || 'localhost',
-              port: expectedEmulatorConfig.firestore.port || 8080
+              hostname: expectedEmulatorConfig.firestore.host || '127.0.0.1',
+              port: expectedEmulatorConfig.firestore.port || 8080,
             };
-            expect(firebaseTestAdminApp.firestoreEmulatorHostConfig.hostname, 'Wrong Firestore emulator hostname').to.equal(expectedFirestoreEmulatorHostConfig.hostname);
             expect(firebaseTestAdminApp.firestoreEmulatorHostConfig.port, 'Wrong Firestore emulator port').to.equal(expectedFirestoreEmulatorHostConfig.port);
           }
 
           // Storage emulator
           if (firebaseTestAdminApp.storageEmulatorHostConfig && expectedEmulatorConfig.storage) {
             const expectedStorageEmulatorHostConfig: GPFirebaseEmulatorHostConfig = {
-              hostname: expectedEmulatorConfig.storage.host || 'localhost',
-              port: expectedEmulatorConfig.storage.port || 9199
+              hostname: expectedEmulatorConfig.storage.host || '127.0.0.1',
+              port: expectedEmulatorConfig.storage.port || 9199,
             };
-            expect(firebaseTestAdminApp.storageEmulatorHostConfig.hostname, 'Wrong Storage emulator hostname').to.equal(expectedStorageEmulatorHostConfig.hostname);
             expect(firebaseTestAdminApp.storageEmulatorHostConfig.port, 'Wrong Storage emulator port').to.equal(expectedStorageEmulatorHostConfig.port);
           }
         }
@@ -161,30 +154,30 @@ describe('Tests admin actions', async () => {
       await sleep(250);
       const db = firebaseTestAdminApp!.firestore;
       const userDoc = await assertSucceeds(db.collection('/users').doc('test_1').get());
-      expect(userDoc.exists, 'Missing document \'/users/test_1\'').to.be.true;
+      expect(userDoc.exists, "Missing document '/users/test_1'").to.be.true;
 
       const userData = userDoc.data();
-      expect(userData, 'Document \'/users/test_1\' should not be empty').to.exist;
+      expect(userData, "Document '/users/test_1' should not be empty").to.exist;
 
       if (userData) {
-        expect(userData.email, 'Document \'/users/test_1\' / Field \'email\' should not be undefined').to.exist;
-        expect(userData.email, 'Document \'/users/test_1\' / Field \'email\' is not a string').to.be.a('string');
-        expect(userData.email, 'Document \'/users/test_1\' / Field \'email\' value mismatched').to.equal('test_1@example.com');
+        expect(userData.email, "Document '/users/test_1' / Field 'email' should not be undefined").to.exist;
+        expect(userData.email, "Document '/users/test_1' / Field 'email' is not a string").to.be.a('string');
+        expect(userData.email, "Document '/users/test_1' / Field 'email' value mismatched").to.equal('test_1@example.com');
       }
     }).retries(20);
     it('Check user status document has been created', async () => {
       await sleep(250);
       const db = firebaseTestAdminApp!.firestore;
       const userDoc = await assertSucceeds(db.collection('/users/test_1/status').doc('test_1').get());
-      expect(userDoc.exists, 'Missing document \'/users/test_1/status/test_1\'').to.be.true;
+      expect(userDoc.exists, "Missing document '/users/test_1/status/test_1'").to.be.true;
 
       const userData = userDoc.data();
-      expect(userData, 'Document \'/users/test_1\' should not be empty').to.exist;
+      expect(userData, "Document '/users/test_1' should not be empty").to.exist;
 
       if (userData) {
-        expect(userData.isProfileComplete, 'Document \'/users/test_1/status/test_1\' / Field \'isProfileComplete\' should not be undefined').to.exist;
-        expect(userData.isProfileComplete, 'Document \'/users/test_1/status/test_1\' / Field \'isProfileComplete\' is not a string').to.be.a('boolean');
-        expect(userData.isProfileComplete, 'Document \'/users/test_1/status/test_1\' / Field \'isProfileComplete\' value mismatched').to.false;
+        expect(userData.isProfileComplete, "Document '/users/test_1/status/test_1' / Field 'isProfileComplete' should not be undefined").to.exist;
+        expect(userData.isProfileComplete, "Document '/users/test_1/status/test_1' / Field 'isProfileComplete' is not a string").to.be.a('boolean');
+        expect(userData.isProfileComplete, "Document '/users/test_1/status/test_1' / Field 'isProfileComplete' value mismatched").to.false;
       }
     }).retries(20);
     it('Delete user', async () => {
@@ -195,13 +188,13 @@ describe('Tests admin actions', async () => {
       await sleep(250);
       const db = firebaseTestAdminApp!.firestore;
       const userDoc = await assertSucceeds(db.collection('/users').doc('test_1').get());
-      expect(userDoc.exists, 'Document \'/users/test_1\' exists though it shouldn\'t').to.be.false;
+      expect(userDoc.exists, "Document '/users/test_1' exists though it shouldn't").to.be.false;
     }).retries(20);
     it('Check user document has been deleted', async () => {
       await sleep(250);
       const db = firebaseTestAdminApp!.firestore;
       const userDoc = await assertSucceeds(db.collection('/users/test_1/status').doc('test_1').get());
-      expect(userDoc.exists, 'Document \'/users/test_1/status/test_1\' exists though it shouldn\'t').to.be.false;
+      expect(userDoc.exists, "Document '/users/test_1/status/test_1' exists though it shouldn't").to.be.false;
     }).retries(20);
   });
   describe('Perform cleanup', async () => {
@@ -230,7 +223,12 @@ describe('Tests admin actions', async () => {
       for (let i = 1; i <= 10; i++) {
         for (let j = 1; j <= 10; j++) {
           const stream = await bucket.file(`folder_${i}/test_${j}.txt`).createWriteStream();
-          stream.write('Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.', async (error) => { throw error; });
+          stream.write(
+            'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
+            async (error) => {
+              throw error;
+            },
+          );
           stream.end();
         }
       }
@@ -317,7 +315,7 @@ describe('Tests regular actions', async () => {
       await assertSucceeds(firebaseAuth.createUserWithEmailAndPassword(auth, 'test_2@example.com', 'Test+1234'));
       await assertSucceeds(firebaseAuth.signOut(auth));
     }).retries(20);
-    it('Check a user cannot access some other user\'s documents (with permission-denied code expected)', async () => {
+    it("Check a user cannot access some other user's documents (with permission-denied code expected)", async () => {
       await firebaseTestApp!.runAuthenticated('test_2@example.com', 'Test+1234', async () => {
         const db = firebaseTestApp!.firestore;
         const otherUserUid = (await firebaseTestAdminApp!.auth.getUserByEmail('test_1@example.com')).uid;
@@ -335,13 +333,13 @@ describe('Tests regular actions', async () => {
       await sleep(250);
       const db = firebaseTestAdminApp!.firestore;
       const docs = await assertSucceeds(db.collection('/users').where('email', '==', 'test_1@example.com').get());
-      expect(docs.docs.length, 'More than one document found in /users with email \'test_1@example.com\'').to.equal(0);
+      expect(docs.docs.length, "More than one document found in /users with email 'test_1@example.com'").to.equal(0);
     }).retries(20);
     it('Check user document has been deleted', async () => {
       await sleep(250);
       const db = firebaseTestAdminApp!.firestore;
       const docs = await assertSucceeds(db.collection('/users').where('email', '==', 'test_1@example.com').get());
-      expect(docs.docs.length, 'More than one document found in /users with email \'test_1@example.com\'').to.equal(0);
+      expect(docs.docs.length, "More than one document found in /users with email 'test_1@example.com'").to.equal(0);
     }).retries(20);
     it('Delete another user', async () => {
       await firebaseTestApp!.runAuthenticated('test_2@example.com', 'Test+1234', async (userCredential) => {

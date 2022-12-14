@@ -14,13 +14,42 @@
     "rules": "storage/storage.rules"
   },
   "emulators": {
-    "auth": {},
-    "functions": {},
-    "firestore": {},
-    "storage": {},
+    "singleProjectMode": false,
     "ui": {
-      "enabled": true
+      "enabled": true,
+      "host": "0.0.0.0",
+      "port": 17000
     },
-    "hub": {}
+    "auth": {
+      "host": "0.0.0.0",
+      "port": 17001
+    },
+    "firestore": {
+      "host": "0.0.0.0",
+      "port": 17002,
+      "websocketPort": 17097
+    },
+    "functions": {
+      "host": "0.0.0.0",
+      "port": 17003
+    },
+    "eventarc": {
+      "name": "eventarc",
+      "host": "127.0.0.1",
+      "port": 17098
+    },
+    "logging": {
+      "name": "logging",
+      "host": "127.0.0.1",
+      "port": 17099
+    },
+    "storage": {
+      "host": "0.0.0.0",
+      "port": 17005
+    },
+    "hub": {
+      "host": "0.0.0.0",
+      "port": 17006
+    }
   }
 }

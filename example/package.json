@@ -1,6 +1,6 @@
 {
   "name": "gp-example",
-  "version": "0.2.0",
+  "version": "1.0.0",
   "description": "Example app for testing firebase-emulator-unit-test",
   "main": "dist/index.js",
   "scripts": {
