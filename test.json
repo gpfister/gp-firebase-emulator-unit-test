@@ -4,7 +4,7 @@
   "storageBucket": "default-bucket",
   "firebaseEmulatorConfigFilePath": "./example/firebase.json",
   "hub": {
-    "hostname": "localhost",
+    "hostname": "127.0.0.1",
     "port": 17006
   }
 }
