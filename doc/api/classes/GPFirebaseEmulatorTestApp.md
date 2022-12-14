@@ -42,7 +42,7 @@ Class constructor
 
 #### Defined in
 
-[firebase_emulator_test_app.ts:45](https://github.com/gpfister/gp-firebase-emulator-unit-test/blob/da0ac90/src/firebase_emulator_test_app.ts#L45)
+[firebase_emulator_test_app.ts:45](https://github.com/gpfister/gp-firebase-emulator-unit-test/blob/f1073a3/src/firebase_emulator_test_app.ts#L45)
 
 ## Accessors
 
@@ -62,7 +62,7 @@ An error if the Auth emulator is not ready
 
 #### Defined in
 
-[firebase_emulator_test_app.ts:107](https://github.com/gpfister/gp-firebase-emulator-unit-test/blob/da0ac90/src/firebase_emulator_test_app.ts#L107)
+[firebase_emulator_test_app.ts:107](https://github.com/gpfister/gp-firebase-emulator-unit-test/blob/f1073a3/src/firebase_emulator_test_app.ts#L107)
 
 ___
 
@@ -78,7 +78,7 @@ Return the Auth emulator host config (hostname and port)
 
 #### Defined in
 
-[firebase_emulator_test_app.ts:175](https://github.com/gpfister/gp-firebase-emulator-unit-test/blob/da0ac90/src/firebase_emulator_test_app.ts#L175)
+[firebase_emulator_test_app.ts:175](https://github.com/gpfister/gp-firebase-emulator-unit-test/blob/f1073a3/src/firebase_emulator_test_app.ts#L175)
 
 ___
 
@@ -98,7 +98,7 @@ An error if the Cloud Firestore emulator is not ready
 
 #### Defined in
 
-[firebase_emulator_test_app.ts:116](https://github.com/gpfister/gp-firebase-emulator-unit-test/blob/da0ac90/src/firebase_emulator_test_app.ts#L116)
+[firebase_emulator_test_app.ts:116](https://github.com/gpfister/gp-firebase-emulator-unit-test/blob/f1073a3/src/firebase_emulator_test_app.ts#L116)
 
 ___
 
@@ -114,7 +114,7 @@ Return the Cloud Firestore emulator host config (hostname and port)
 
 #### Defined in
 
-[firebase_emulator_test_app.ts:180](https://github.com/gpfister/gp-firebase-emulator-unit-test/blob/da0ac90/src/firebase_emulator_test_app.ts#L180)
+[firebase_emulator_test_app.ts:180](https://github.com/gpfister/gp-firebase-emulator-unit-test/blob/f1073a3/src/firebase_emulator_test_app.ts#L180)
 
 ___
 
@@ -134,7 +134,7 @@ An error if the Cloud Functions emulator is not ready
 
 #### Defined in
 
-[firebase_emulator_test_app.ts:125](https://github.com/gpfister/gp-firebase-emulator-unit-test/blob/da0ac90/src/firebase_emulator_test_app.ts#L125)
+[firebase_emulator_test_app.ts:125](https://github.com/gpfister/gp-firebase-emulator-unit-test/blob/f1073a3/src/firebase_emulator_test_app.ts#L125)
 
 ___
 
@@ -150,7 +150,7 @@ Return the Cloud Functions emulator host config (hostname and port)
 
 #### Defined in
 
-[firebase_emulator_test_app.ts:185](https://github.com/gpfister/gp-firebase-emulator-unit-test/blob/da0ac90/src/firebase_emulator_test_app.ts#L185)
+[firebase_emulator_test_app.ts:185](https://github.com/gpfister/gp-firebase-emulator-unit-test/blob/f1073a3/src/firebase_emulator_test_app.ts#L185)
 
 ___
 
@@ -170,7 +170,7 @@ An error if the Cloud Storage emulator is not ready
 
 #### Defined in
 
-[firebase_emulator_test_app.ts:134](https://github.com/gpfister/gp-firebase-emulator-unit-test/blob/da0ac90/src/firebase_emulator_test_app.ts#L134)
+[firebase_emulator_test_app.ts:134](https://github.com/gpfister/gp-firebase-emulator-unit-test/blob/f1073a3/src/firebase_emulator_test_app.ts#L134)
 
 ___
 
@@ -186,7 +186,7 @@ Return the Cloud Storage emulator host config (hostname and port)
 
 #### Defined in
 
-[firebase_emulator_test_app.ts:190](https://github.com/gpfister/gp-firebase-emulator-unit-test/blob/da0ac90/src/firebase_emulator_test_app.ts#L190)
+[firebase_emulator_test_app.ts:190](https://github.com/gpfister/gp-firebase-emulator-unit-test/blob/f1073a3/src/firebase_emulator_test_app.ts#L190)
 
 ## Methods
 
@@ -211,7 +211,7 @@ app.init().then(() => {
 
 #### Defined in
 
-[firebase_emulator_test_app.ts:64](https://github.com/gpfister/gp-firebase-emulator-unit-test/blob/da0ac90/src/firebase_emulator_test_app.ts#L64)
+[firebase_emulator_test_app.ts:64](https://github.com/gpfister/gp-firebase-emulator-unit-test/blob/f1073a3/src/firebase_emulator_test_app.ts#L64)
 
 ___
 
@@ -250,4 +250,4 @@ A promise which will trigger the `pr` function once authenticated,
 
 #### Defined in
 
-[firebase_emulator_test_app.ts:160](https://github.com/gpfister/gp-firebase-emulator-unit-test/blob/da0ac90/src/firebase_emulator_test_app.ts#L160)
+[firebase_emulator_test_app.ts:160](https://github.com/gpfister/gp-firebase-emulator-unit-test/blob/f1073a3/src/firebase_emulator_test_app.ts#L160)

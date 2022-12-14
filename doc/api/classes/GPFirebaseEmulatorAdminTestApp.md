@@ -45,7 +45,7 @@ Class constructor
 
 #### Defined in
 
-[firebase_emulator_admin_test_app.ts:40](https://github.com/gpfister/gp-firebase-emulator-unit-test/blob/da0ac90/src/firebase_emulator_admin_test_app.ts#L40)
+[firebase_emulator_admin_test_app.ts:40](https://github.com/gpfister/gp-firebase-emulator-unit-test/blob/f1073a3/src/firebase_emulator_admin_test_app.ts#L40)
 
 ## Accessors
 
@@ -65,7 +65,7 @@ An error if the Auth emulator is not ready
 
 #### Defined in
 
-[firebase_emulator_admin_test_app.ts:82](https://github.com/gpfister/gp-firebase-emulator-unit-test/blob/da0ac90/src/firebase_emulator_admin_test_app.ts#L82)
+[firebase_emulator_admin_test_app.ts:82](https://github.com/gpfister/gp-firebase-emulator-unit-test/blob/f1073a3/src/firebase_emulator_admin_test_app.ts#L82)
 
 ___
 
@@ -81,7 +81,7 @@ Return the Auth emulator host config (hostname and port)
 
 #### Defined in
 
-[firebase_emulator_admin_test_app.ts:160](https://github.com/gpfister/gp-firebase-emulator-unit-test/blob/da0ac90/src/firebase_emulator_admin_test_app.ts#L160)
+[firebase_emulator_admin_test_app.ts:160](https://github.com/gpfister/gp-firebase-emulator-unit-test/blob/f1073a3/src/firebase_emulator_admin_test_app.ts#L160)
 
 ___
 
@@ -101,7 +101,7 @@ An error if the Cloud Firestore emulator is not ready
 
 #### Defined in
 
-[firebase_emulator_admin_test_app.ts:91](https://github.com/gpfister/gp-firebase-emulator-unit-test/blob/da0ac90/src/firebase_emulator_admin_test_app.ts#L91)
+[firebase_emulator_admin_test_app.ts:91](https://github.com/gpfister/gp-firebase-emulator-unit-test/blob/f1073a3/src/firebase_emulator_admin_test_app.ts#L91)
 
 ___
 
@@ -117,7 +117,7 @@ Return the Cloud Firestore emulator host config (hostname and port)
 
 #### Defined in
 
-[firebase_emulator_admin_test_app.ts:165](https://github.com/gpfister/gp-firebase-emulator-unit-test/blob/da0ac90/src/firebase_emulator_admin_test_app.ts#L165)
+[firebase_emulator_admin_test_app.ts:165](https://github.com/gpfister/gp-firebase-emulator-unit-test/blob/f1073a3/src/firebase_emulator_admin_test_app.ts#L165)
 
 ___
 
@@ -137,7 +137,7 @@ An error if the Cloud Storage emulator is not ready
 
 #### Defined in
 
-[firebase_emulator_admin_test_app.ts:100](https://github.com/gpfister/gp-firebase-emulator-unit-test/blob/da0ac90/src/firebase_emulator_admin_test_app.ts#L100)
+[firebase_emulator_admin_test_app.ts:100](https://github.com/gpfister/gp-firebase-emulator-unit-test/blob/f1073a3/src/firebase_emulator_admin_test_app.ts#L100)
 
 ___
 
@@ -153,7 +153,7 @@ Return the Cloud Storage emulator host config (hostname and port)
 
 #### Defined in
 
-[firebase_emulator_admin_test_app.ts:170](https://github.com/gpfister/gp-firebase-emulator-unit-test/blob/da0ac90/src/firebase_emulator_admin_test_app.ts#L170)
+[firebase_emulator_admin_test_app.ts:170](https://github.com/gpfister/gp-firebase-emulator-unit-test/blob/f1073a3/src/firebase_emulator_admin_test_app.ts#L170)
 
 ## Methods
 
@@ -169,7 +169,7 @@ Clean all storage
 
 #### Defined in
 
-[firebase_emulator_admin_test_app.ts:136](https://github.com/gpfister/gp-firebase-emulator-unit-test/blob/da0ac90/src/firebase_emulator_admin_test_app.ts#L136)
+[firebase_emulator_admin_test_app.ts:136](https://github.com/gpfister/gp-firebase-emulator-unit-test/blob/f1073a3/src/firebase_emulator_admin_test_app.ts#L136)
 
 ___
 
@@ -185,7 +185,7 @@ Clean all users
 
 #### Defined in
 
-[firebase_emulator_admin_test_app.ts:117](https://github.com/gpfister/gp-firebase-emulator-unit-test/blob/da0ac90/src/firebase_emulator_admin_test_app.ts#L117)
+[firebase_emulator_admin_test_app.ts:117](https://github.com/gpfister/gp-firebase-emulator-unit-test/blob/f1073a3/src/firebase_emulator_admin_test_app.ts#L117)
 
 ___
 
@@ -201,7 +201,7 @@ Clean all data in the database
 
 #### Defined in
 
-[firebase_emulator_admin_test_app.ts:108](https://github.com/gpfister/gp-firebase-emulator-unit-test/blob/da0ac90/src/firebase_emulator_admin_test_app.ts#L108)
+[firebase_emulator_admin_test_app.ts:108](https://github.com/gpfister/gp-firebase-emulator-unit-test/blob/f1073a3/src/firebase_emulator_admin_test_app.ts#L108)
 
 ___
 
@@ -223,7 +223,7 @@ Delete all files
 
 #### Defined in
 
-[firebase_emulator_admin_test_app.ts:126](https://github.com/gpfister/gp-firebase-emulator-unit-test/blob/da0ac90/src/firebase_emulator_admin_test_app.ts#L126)
+[firebase_emulator_admin_test_app.ts:126](https://github.com/gpfister/gp-firebase-emulator-unit-test/blob/f1073a3/src/firebase_emulator_admin_test_app.ts#L126)
 
 ___
 
@@ -239,7 +239,7 @@ Disable Functions background triggers (on Firestore create/update/delete, on use
 
 #### Defined in
 
-[firebase_emulator_admin_test_app.ts:153](https://github.com/gpfister/gp-firebase-emulator-unit-test/blob/da0ac90/src/firebase_emulator_admin_test_app.ts#L153)
+[firebase_emulator_admin_test_app.ts:153](https://github.com/gpfister/gp-firebase-emulator-unit-test/blob/f1073a3/src/firebase_emulator_admin_test_app.ts#L153)
 
 ___
 
@@ -255,7 +255,7 @@ Enable Functions background triggers (on Firestore create/update/delete, on user
 
 #### Defined in
 
-[firebase_emulator_admin_test_app.ts:146](https://github.com/gpfister/gp-firebase-emulator-unit-test/blob/da0ac90/src/firebase_emulator_admin_test_app.ts#L146)
+[firebase_emulator_admin_test_app.ts:146](https://github.com/gpfister/gp-firebase-emulator-unit-test/blob/f1073a3/src/firebase_emulator_admin_test_app.ts#L146)
 
 ___
 
@@ -271,4 +271,4 @@ Init the app
 
 #### Defined in
 
-[firebase_emulator_admin_test_app.ts:50](https://github.com/gpfister/gp-firebase-emulator-unit-test/blob/da0ac90/src/firebase_emulator_admin_test_app.ts#L50)
+[firebase_emulator_admin_test_app.ts:50](https://github.com/gpfister/gp-firebase-emulator-unit-test/blob/f1073a3/src/firebase_emulator_admin_test_app.ts#L50)

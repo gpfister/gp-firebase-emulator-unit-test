@@ -5,13 +5,12 @@
     "declaration": true,
     "sourceMap": true,
     "outDir": "./dist",
-    // "rootDir": "./src/**/*",
     "isolatedModules": true,
     "strict": true,
     "esModuleInterop": true,
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true
   },
-  "include": ["./src/**/*.ts", "test/firebase_emulator_unit_test.spec.ts"],
+  "include": ["./src/**/*.ts"],
   "exclude": ["./dist/**/*"]
 }

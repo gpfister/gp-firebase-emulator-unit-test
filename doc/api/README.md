@@ -55,7 +55,7 @@ Simple type to store the emulator host config
 
 #### Defined in
 
-[types/firebase_emulator_host_config.type.ts:19](https://github.com/gpfister/gp-firebase-emulator-unit-test/blob/da0ac90/src/types/firebase_emulator_host_config.type.ts#L19)
+[types/firebase_emulator_host_config.type.ts:19](https://github.com/gpfister/gp-firebase-emulator-unit-test/blob/f1073a3/src/types/firebase_emulator_host_config.type.ts#L19)
 
 ___
 
@@ -81,7 +81,7 @@ The test app option to initialise the unit test app
 
 #### Defined in
 
-[types/firebase_emulator_test_app_options.type.ts:19](https://github.com/gpfister/gp-firebase-emulator-unit-test/blob/da0ac90/src/types/firebase_emulator_test_app_options.type.ts#L19)
+[types/firebase_emulator_test_app_options.type.ts:19](https://github.com/gpfister/gp-firebase-emulator-unit-test/blob/f1073a3/src/types/firebase_emulator_test_app_options.type.ts#L19)
 
 ## Functions
 
@@ -125,7 +125,7 @@ A promise that is fulfilled if pr is rejected with a specific error
 
 #### Defined in
 
-[firebase_emulator_unit_test.ts:103](https://github.com/gpfister/gp-firebase-emulator-unit-test/blob/da0ac90/src/firebase_emulator_unit_test.ts#L103)
+[firebase_emulator_unit_test.ts:103](https://github.com/gpfister/gp-firebase-emulator-unit-test/blob/f1073a3/src/firebase_emulator_unit_test.ts#L103)
 
 ___
 
@@ -166,7 +166,7 @@ the promise itself, not changed
 
 #### Defined in
 
-[firebase_emulator_unit_test.ts:78](https://github.com/gpfister/gp-firebase-emulator-unit-test/blob/da0ac90/src/firebase_emulator_unit_test.ts#L78)
+[firebase_emulator_unit_test.ts:78](https://github.com/gpfister/gp-firebase-emulator-unit-test/blob/f1073a3/src/firebase_emulator_unit_test.ts#L78)
 
 ___
 
@@ -197,7 +197,7 @@ A promise which would resolve as a Firebase Emulator admin test app
 
 #### Defined in
 
-[firebase_emulator_unit_test.ts:55](https://github.com/gpfister/gp-firebase-emulator-unit-test/blob/da0ac90/src/firebase_emulator_unit_test.ts#L55)
+[firebase_emulator_unit_test.ts:55](https://github.com/gpfister/gp-firebase-emulator-unit-test/blob/f1073a3/src/firebase_emulator_unit_test.ts#L55)
 
 ___
 
@@ -228,7 +228,7 @@ A promise which would resolve as a Firebase Emulator test app
 
 #### Defined in
 
-[firebase_emulator_unit_test.ts:36](https://github.com/gpfister/gp-firebase-emulator-unit-test/blob/da0ac90/src/firebase_emulator_unit_test.ts#L36)
+[firebase_emulator_unit_test.ts:36](https://github.com/gpfister/gp-firebase-emulator-unit-test/blob/f1073a3/src/firebase_emulator_unit_test.ts#L36)
 
 ___
 
@@ -262,4 +262,4 @@ await sleep(10000); // Sleep for 10 seconds
 
 #### Defined in
 
-[firebase_emulator_unit_test.ts:152](https://github.com/gpfister/gp-firebase-emulator-unit-test/blob/da0ac90/src/firebase_emulator_unit_test.ts#L152)
+[firebase_emulator_unit_test.ts:152](https://github.com/gpfister/gp-firebase-emulator-unit-test/blob/f1073a3/src/firebase_emulator_unit_test.ts#L152)
