@@ -38,7 +38,7 @@ jobs:
       - run: npm i -g firebase-tools
       - run: npm ci
       - run: npm run build
-      - run: (cd example; echo .firebaserc)
+      - run: (cd example; cat .firebaserc)
       - run: (cd example; firebase use local --token '$FIREBASE_TOKEN')
         env:
           FIREBASE_TOKEN: ${{secrets.firebase_token}}
