@@ -35,9 +35,11 @@ jobs:
       - run: npm i -g firebase-tools
       - run: npm ci
       - run: npm run build
+      - run: firebase use default --token '$FIREBASE_TOKEN'
+        env:
+          FIREBASE_TOKEN: ${{secrets.firebase_token}}
       - run: (cd example/functions; npm ci && npm run lint && npm run build)
-      - run: (cd example; echo '{"projects":{"default":"gp-example"}}' > .firebaserc)
-      - run: (cd example; firebase emulators:exec '(cd ..; npm test)')
+      - run: (cd example; npm test')
 
   publish-npm:
     needs: build
