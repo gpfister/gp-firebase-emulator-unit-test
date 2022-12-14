@@ -23,10 +23,10 @@ on:
 
 jobs:
   build:
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-22.04
     strategy:
       matrix:
-        node-version: [16.x]
+        node-version: [18.x]
         # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
     steps:
       - uses: actions/checkout@v2
@@ -34,11 +34,10 @@ jobs:
         uses: actions/setup-node@v2
         with:
           node-version: ${{ matrix.node-version }}
-          cache: "npm"
+          cache: 'npm'
       - run: npm i -g firebase-tools
       - run: npm ci
       - run: npm run build
-      - run: echo '{"projectId":"gp-example","region":"europe-west1","storageBucket":"default-bucket","firebaseEmulatorConfigFilePath":"./example/firebase.json","hub":{"hostname":"localhost","port":4400}}' > test.json
       - run: (cd example/functions; npm ci && npm run lint && npm run build)
       - run: (cd example; echo '{"projects":{"default":"gp-example"}}' > .firebaserc)
       - run: (cd example; firebase emulators:exec '(cd ..; npm test)')
