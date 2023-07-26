@@ -11,7 +11,7 @@
     "build:watch": "tsc-watch --onSuccess \"npm test\" --sourceMap",
     "build:doc": "npx typedoc ./src/index.ts --out ./doc/api --excludeExternals --excludePrivate --excludeProtected --excludeInternal --readme none",
     "clean": "rm -rf ./dist ./doc/api",
-    "test": "mocha --require ts-node/register ./test/*.spec.ts --timeout 60000"
+    "test": "mocha --require ts-node/register ./test/*.spec.ts --delay --timeout 60000"
   },
   "engines": {
     "node": "18"
@@ -34,24 +34,24 @@
   },
   "homepage": "https://github.com/gpfister/gp-firebase-emulator-unit-test#readme",
   "dependencies": {
-    "axios": "^1.2.1",
-    "firebase": "^9.8.4",
-    "firebase-admin": "^11.3.0"
+    "axios": "^1.4.0",
+    "firebase": "^10.1.0",
+    "firebase-admin": "^11.10.1"
   },
   "devDependencies": {
-    "@types/chai": "^4.3.1",
+    "@types/chai": "^4.3.5",
     "@types/mocha": "^10.0.1",
-    "@types/node": "^18.11.15",
-    "@typescript-eslint/eslint-plugin": "^5.30.0",
-    "@typescript-eslint/parser": "^5.30.0",
-    "chai": "^4.3.6",
-    "eslint": "^8.18.0",
+    "@types/node": "^18.17.1",
+    "@typescript-eslint/eslint-plugin": "^5.62.0",
+    "@typescript-eslint/parser": "^5.62.0",
+    "chai": "^4.3.7",
+    "eslint": "^8.45.0",
     "eslint-plugin-chai-friendly": "^0.7.2",
     "mocha": "^10.2.0",
-    "ts-node": "^10.8.1",
-    "tsc-watch": "^6.0.0",
-    "typedoc": "^0.23.2",
-    "typedoc-plugin-markdown": "^3.13.1",
-    "typescript": "^4.7.4"
+    "ts-node": "^10.9.1",
+    "tsc-watch": "^6.0.4",
+    "typedoc": "^0.24.8",
+    "typedoc-plugin-markdown": "^3.15.4",
+    "typescript": "^4.9.5"
   }
 }

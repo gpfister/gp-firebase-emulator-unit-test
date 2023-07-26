@@ -1,7 +1,6 @@
 // gp-firebase-emulator-unit-test
 //
-// Greg PFISTER
-// (C) 2021, Greg PFISTER. MIT License
+// Copyright (C) 2021-2023, Greg PFISTER. MIT License
 //
 // THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
 // IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
@@ -10,24 +9,19 @@
 // LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
+//
 
 /**
  * @author Greg PFISTER
  * @license MIT
- * @copyright (C) 2021, Greg PFISTER
+ * @copyright Copyright (C) 2021-2023, Greg PFISTER. MIT License
  * @module
  */
 
 export type { GPFirebaseEmulatorTestAppOption, GPFirebaseEmulatorHostConfig } from './types/';
 export { GPFirebaseEmulatorTestApp } from './firebase_emulator_test_app';
 export { GPFirebaseEmulatorAdminTestApp } from './firebase_emulator_admin_test_app';
-export {
-    initAdminTestApp,
-    initTestApp,
-    assertFails,
-    assertSucceeds,
-    sleep
-} from './firebase_emulator_unit_test';
+export { initAdminTestApp, initTestApp, assertFails, assertSucceeds, sleep } from './firebase_emulator_unit_test';
 
 // This should be imported on each project
 // export * as firebaseAuth from 'firebase/auth';

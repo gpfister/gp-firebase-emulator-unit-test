@@ -4,9 +4,9 @@
   "description": "Example app for testing gp-firebase-emulator-unit-test",
   "main": "dist/index.js",
   "scripts": {
-    "emul": "firebase emulators:start",
-    "test": "firebase emulators:exec '(cd ..; npm test)'",
-    "test:ci": "firebase emulators:exec '(cd ..; npm test)' --json"
+    "emul": "firebase-cli emulators:start",
+    "test": "firebase-cli emulators:exec '(cd ..; npm test)'",
+    "test:ci": "firebase-cli emulators:exec '(cd ..; npm test)' --json"
   },
   "repository": {
     "type": "git",
@@ -25,5 +25,8 @@
   "bugs": {
     "url": "https://github.com/gpfister/gp-firebase-emulator-unit-test/issues"
   },
-  "homepage": "https://github.com/gpfister/gp-firebase-emulator-unit-test#readme"
+  "homepage": "https://github.com/gpfister/gp-firebase-emulator-unit-test#readme",
+  "devDependencies": {
+    "firebase-tools": "^12.4.6"
+  }
 }
