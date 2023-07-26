@@ -16,30 +16,30 @@
 name: CI
 
 on:
-  push:
-    branches: [master]
-  pull_request:
-    branches: [master]
+    push:
+        branches: [master]
+    pull_request:
+        branches: [master]
 
 jobs:
-  build:
-    runs-on: ubuntu-22.04
-    strategy:
-      matrix:
-        node-version: [18.x]
-        # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
-    steps:
-      - uses: actions/checkout@v2
-      - name: Use Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v2
-        with:
-          node-version: ${{ matrix.node-version }}
-          cache: 'npm'
-      - run: npm i -g firebase-tools
-      - run: npm ci
-      - run: npm run build
-      - run: (cd example; firebase use local --token $FIREBASE_TOKEN)
-        env:
-          FIREBASE_TOKEN: ${{secrets.firebase_token}}
-      - run: (cd example/functions; npm ci && npm run lint && npm run build)
-      - run: (cd example; npm run test:ci)
+    build:
+        runs-on: ubuntu-22.04
+        strategy:
+            matrix:
+                node-version: [18.x]
+                # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
+        steps:
+            - uses: actions/checkout@v2
+            - name: Use Node.js ${{ matrix.node-version }}
+              uses: actions/setup-node@v2
+              with:
+                  node-version: ${{ matrix.node-version }}
+                  cache: 'npm'
+            - run: sudo cp .devcontainer/firebase-cli /usr/bin
+            - run: npm ci
+            - run: npm run build
+            - run: (cd example; npm ci && firebase-cli use local)
+              env:
+                  FIREBASE_TOKEN: ${{secrets.firebase_token}}
+            - run: (cd example/functions; npm ci && npm run lint && npm run build)
+            - run: (cd example; npm run test:ci)
