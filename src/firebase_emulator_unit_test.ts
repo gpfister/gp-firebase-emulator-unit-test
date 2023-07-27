@@ -1,7 +1,6 @@
-// gp-firebase-emulator-unit-test
 //
-// Greg PFISTER
-// (C) 2021, Greg PFISTER. MIT License
+// gp-firebase-emulator-unit-test
+// Copyright (C) 2021-2023, Greg PFISTER. MIT License
 //
 // THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
 // IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
@@ -10,6 +9,7 @@
 // LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
+//
 
 import { GPFirebaseEmulatorTestApp } from './firebase_emulator_test_app';
 import { GPFirebaseEmulatorAdminTestApp } from './firebase_emulator_admin_test_app';
@@ -87,10 +87,10 @@ export async function assertSucceeds<T>(pr: Promise<T>): Promise<T> {
  * code as a valid result.
  *
  * @param pr The promise to be asserted
- * @param expectedErrorCode Specifiy an error code expected. If not specified, 
- *                          it assumes that any error code statisfies the 
+ * @param expectedErrorCode Specifiy an error code expected. If not specified,
+ *                          it assumes that any error code statisfies the
  *                          expected faillure.
- * @return A promise that is fulfilled if pr is rejected with a specific error 
+ * @return A promise that is fulfilled if pr is rejected with a specific error
  *         code if requested, otherwise with any other error code
  * @public
  * @example
@@ -103,9 +103,7 @@ export async function assertSucceeds<T>(pr: Promise<T>): Promise<T> {
 export async function assertFails<T>(pr: Promise<T>, expectedErrorCode?: string): Promise<T | undefined> {
     return pr.then(
         () => {
-            return Promise.reject(
-                new Error('Expected request to fail, but it succeeded.')
-            );
+            return Promise.reject(new Error('Expected request to fail, but it succeeded.'));
         },
         (error: Error | FirebaseError | StorageError | AuthError) => {
             if (expectedErrorCode) {
@@ -113,18 +111,10 @@ export async function assertFails<T>(pr: Promise<T>, expectedErrorCode?: string)
                     const errorCode = error.code.toLowerCase() || '';
 
                     if (errorCode !== expectedErrorCode.toLowerCase()) {
-                        return Promise.reject(
-                            new Error(
-                                `Expected '${expectedErrorCode.toUpperCase()}' but got unexpected error: '${errorCode.toUpperCase()}'`
-                            )
-                        );
+                        return Promise.reject(new Error(`Expected '${expectedErrorCode.toUpperCase()}' but got unexpected error: '${errorCode.toUpperCase()}'`));
                     }
                 } else {
-                    return Promise.reject(
-                        new Error(
-                            `Expected '${expectedErrorCode.toUpperCase()}' however the Error returned doesn't have an 'code' field`
-                        )
-                    );
+                    return Promise.reject(new Error(`Expected '${expectedErrorCode.toUpperCase()}' however the Error returned doesn't have an 'code' field`));
                 }
             }
         }

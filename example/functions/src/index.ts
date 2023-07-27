@@ -1,10 +1,15 @@
-/**
- * gp-firebase-emulator-unit-test/example/functions
- *
- * @author Greg PFISTER
- * @license MIT
- * @copyright (C) 2021, Greg PFISTER
- */
+//
+// gp-firebase-emulator-unit-test
+// Copyright (C) 2021-2023, Greg PFISTER. MIT License
+//
+// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+// IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+// FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.IN NO EVENT SHALL THE
+// AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+// LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+// SOFTWARE.
+//
 
 import * as admin from 'firebase-admin';
 import * as functions from 'firebase-functions';
@@ -16,10 +21,7 @@ import { GPFirebaseFunctionsModule } from './firebase_functions';
 admin.initializeApp();
 
 // The addition function
-export const add = functions
-    .region('europe-west1')
-    .https
-    .onCall((data, context) => GPFirebaseFunctionsModule.additionController.add(data, context));
+export const add = functions.region('europe-west1').https.onCall((data, context) => GPFirebaseFunctionsModule.additionController.add(data, context));
 
 // On user creation
 export const onUserAccountCreated = functions

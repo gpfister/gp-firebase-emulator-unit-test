@@ -1,3 +1,15 @@
+//
+// gp-firebase-emulator-unit-test
+// Copyright (c) 2021-2023, Greg PFISTER. MIT License
+//
+// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+// IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS
+// FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR
+// COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER
+// IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
+// CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+//
+
 // For format details, see https://aka.ms/devcontainer.json. For config options, see the README at:
 // https://github.com/microsoft/vscode-dev-containers/tree/v0.231.6/containers/ubuntu
 {
@@ -10,62 +22,71 @@
   "service": "firebase",
   "workspaceFolder": "/workspace",
 
-  // Set *default* container specific settings.json values on container create.
-  "settings": {
-    "remote.localPortHost": "allInterfaces"
+  // Customizations
+  "customizations": {
+    "vscode": {
+      "settings": {
+        "remote.localPortHost": "allInterfaces"
+      },
+
+      // Add the IDs of extensions you want installed when the container is created.
+      "extensions": [
+        "Angular.ng-template",
+        "dbaeumer.vscode-eslint",
+        "me-dutour-mathieu.vscode-firebase",
+        "toba.vsfire",
+        "donjayamanne.githistory",
+        "eamodio.gitlens",
+        "atlassian.atlascode",
+        "Atlassian.jira-frontend",
+        "yzhang.markdown-all-in-one",
+        "hbenl.vscode-mocha-test-adapter",
+        "eg2.vscode-npm-script",
+        "christian-kohler.npm-intellisense",
+        "quicktype.quicktype",
+        "esbenp.prettier-vscode",
+        "ms-vscode.test-adapter-converter",
+        "hbenl.vscode-test-explorer",
+        "Gruntfuggly.todo-tree",
+        "DotJoshJohnson.xml",
+        "redhat.vscode-yaml",
+        "ms-azuretools.vscode-docker"
+      ]
+    }
   },
 
-  // Add the IDs of extensions you want installed when the container is created.
-  "extensions": [
-    "Angular.ng-template",
-    "dbaeumer.vscode-eslint",
-    "me-dutour-mathieu.vscode-firebase",
-    "toba.vsfire",
-    "donjayamanne.githistory",
-    "eamodio.gitlens",
-    "atlassian.atlascode",
-    "Atlassian.jira-frontend",
-    "yzhang.markdown-all-in-one",
-    "hbenl.vscode-mocha-test-adapter",
-    "eg2.vscode-npm-script",
-    "christian-kohler.npm-intellisense",
-    "quicktype.quicktype",
-    "esbenp.prettier-vscode",
-    "ms-vscode.test-adapter-converter",
-    "hbenl.vscode-test-explorer",
-    "Gruntfuggly.todo-tree",
-    "DotJoshJohnson.xml",
-    "redhat.vscode-yaml"
-  ],
-
   // Use 'forwardPorts' to make a list of ports inside the container available locally.
-  "forwardPorts": [1883, 18000, 18001, 18002, 18003, 18005, 18006],
+  "forwardPorts": [80, 17000, 17001, 17002, 17003, 17004, 17005, 17006],
   "portsAttributes": {
-    "1883": {
-      "label": "Mosquitto MQTT",
+    "80": {
+      "label": "nginx",
       "onAutoForward": "notify"
     },
-    "18000": {
+    "17000": {
       "label": "Firebase Emulator UI",
       "onAutoForward": "notify"
     },
-    "18001": {
+    "17001": {
       "label": "Firebase Emulator Auth",
       "onAutoForward": "notify"
     },
-    "18002": {
+    "17002": {
       "label": "Firebase Emulator Firestore",
       "onAutoForward": "notify"
     },
-    "18003": {
+    "17003": {
       "label": "Firebase Emulator Functions",
       "onAutoForward": "notify"
     },
-    "18005": {
+    "17004": {
+      "label": "Firebase Emulator Pub/Sub",
+      "onAutoForward": "notify"
+    },
+    "17005": {
       "label": "Firebase Emulator Storage",
       "onAutoForward": "notify"
     },
-    "18006": {
+    "17006": {
       "label": "Firebase Emulator Hub",
       "onAutoForward": "notify"
     }
