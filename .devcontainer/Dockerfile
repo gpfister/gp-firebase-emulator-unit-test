@@ -10,7 +10,7 @@
 # CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 #
 
-FROM ghcr.io/gp-devenv/gp-node-devenv:22.04-18-1
+FROM ghcr.io/gp-devenv/gp-node-devenv:22.04-20-1
 
 # Switch back to root
 USER root
