@@ -27,6 +27,7 @@
   },
   "homepage": "https://github.com/gpfister/gp-firebase-emulator-unit-test#readme",
   "devDependencies": {
+    "firebase": "^10.14.0",
     "firebase-tools": "^12.4.6"
   }
 }

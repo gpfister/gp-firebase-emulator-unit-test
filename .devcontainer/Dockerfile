@@ -10,7 +10,7 @@
 # CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 #
 
-FROM ghcr.io/gp-devenv/gp-node-devenv:22.04-20-1
+FROM ghcr.io/gp-devenv/gp-node-devenv:24.04-20-1
 
 # Switch back to root
 USER root
@@ -19,9 +19,9 @@ USER root
 COPY ./firebase-cli /usr/bin
 RUN chmod ogu+x /usr/bin/firebase-cli
 
-# Install Java
+# Install Java 
 RUN apt-get update && \
-    apt-get install -y -o DPkg::Options::=--force-confdef openjdk-19-jre-headless imagemagick && \
+    apt-get install -y -o DPkg::Options::=--force-confdef openjdk-21-jre-headless imagemagick && \
     apt-get autoclean -y && \
     apt-get autoremove -y
 
