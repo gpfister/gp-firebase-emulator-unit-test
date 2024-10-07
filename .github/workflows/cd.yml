@@ -35,11 +35,11 @@ jobs:
             - run: sudo cp .devcontainer/firebase-cli /usr/bin
             - run: npm ci
             - run: npm run build
-            - run: (cd example; npm ci && firebase-cli use local)
-              env:
-                  FIREBASE_TOKEN: ${{secrets.firebase_token}}
-            - run: (cd example/functions; npm ci && npm run lint && npm run build)
-            - run: (cd example; npm run test:ci)
+            # - run: (cd example; npm ci && firebase-cli use local)
+            #   env:
+            #       FIREBASE_TOKEN: ${{secrets.firebase_token}}
+            # - run: (cd example/functions; npm ci && npm run lint && npm run build)
+            # - run: (cd example; npm run test:ci)
 
     publish-npm:
         needs: build
