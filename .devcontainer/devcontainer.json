@@ -41,7 +41,6 @@
                 "Atlassian.jira-frontend",
                 "yzhang.markdown-all-in-one",
                 "hbenl.vscode-mocha-test-adapter",
-                "eg2.vscode-npm-script",
                 "christian-kohler.npm-intellisense",
                 "quicktype.quicktype",
                 "esbenp.prettier-vscode",
