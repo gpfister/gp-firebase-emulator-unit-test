@@ -26,20 +26,27 @@ jobs:
         runs-on: ubuntu-22.04
         strategy:
             matrix:
-                node-version: [20.x]
+                node-version: [20.x, 22.x]
                 # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
         steps:
-            - uses: actions/checkout@v2
+            - name: Checkout
+              uses: actions/checkout@v4
             - name: Use Node.js ${{ matrix.node-version }}
-              uses: actions/setup-node@v2
+              uses: actions/setup-node@v4
               with:
                   node-version: ${{ matrix.node-version }}
                   cache: 'npm'
-            - run: sudo cp .devcontainer/firebase-cli /usr/bin
-            - run: npm ci
-            - run: npm run build
-            # - run: (cd example; npm ci && firebase-cli use local)
+            - name: Copy firebase-cli
+              run: sudo cp .devcontainer/firebase-cli /usr/bin
+            - name: Get dependencies
+              run: npm ci
+            - name: Build
+              run: npm run build
+            # - name: Setup example
+            #   run: (cd example; npm ci && firebase-cli use local)
             #   env:
             #       FIREBASE_TOKEN: ${{secrets.firebase_token}}
-            # - run: (cd example/functions; npm ci && npm run lint && npm run build)
-            # - run: (cd example; npm run test:ci)
+            # - name: Lint & build example
+            #   run: (cd example/functions; npm ci && npm run lint && npm run build)
+            # - name: Run test
+            #   run: (cd example; npm run test:ci)
